@@ -103,9 +103,10 @@ body {
     text-decoration: none;
 }
 
+/* LINKS DE NAVEGAÇÃO - VISÍVEL POR PADRÃO EM DESKTOP */
 .nav-links {
     list-style: none;
-    display: flex;
+    display: flex; /* Garante que os links apareçam em desktop */
 }
 
 .nav-links li {
@@ -124,6 +125,19 @@ body {
 .nav-links a.active {
     color: var(--primary-color);
 }
+
+/* BOTÃO DO MENU HAMBÚRGUER - ESCONDIDO POR PADRÃO EM DESKTOP */
+.menu-toggle {
+    display: none; /* Garante que o hambúrguer esteja oculto em desktop */
+    background: transparent;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+}
+
 
 /* --- Seção Principal (Hero) --- */
 .hero {
@@ -705,4 +719,15 @@ body {
     .contact-info-grid {
         grid-template-columns: 1fr;
     }
+}
+/* Estilo para links no rodapé */
+.footer p .footer-link {
+    color: var(--text-muted); /* Cor de texto suave */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin-left: 10px; /* Espaçamento entre o texto de copyright e o link */
+}
+
+.footer p .footer-link:hover {
+    color: var(--primary-color); /* Cor de destaque ao passar o mouse */
 }
