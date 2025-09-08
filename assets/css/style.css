@@ -1,18 +1,18 @@
-/* Variáveis CSS (para facilitar a manutenção de cores e fontes) */
+/* Variáveis CSS */
 :root {
-    --primary-color: #00BFFF; /* Azul de destaque (Deep Sky Blue) */
-    --gradient-start: #031424; /* NOVO: Início do degradê (azul muito escuro, quase preto) */
-    --gradient-end: #06283D;   /* NOVO: Fim do degradê (azul escuro um pouco mais claro) */
-    --card-dark-blue: #06283D; /* Fundo de cards, cabeçalho, rodapé e seções alternadas - Poderia ser o gradient-end ou outro tom */
-
-    --text-light: #F0F0F0; /* Texto principal */
-    --text-muted: #B0C4DE; /* Texto secundário (azul acinzentado claro) */
-    --border-color: #1A4D6F; /* Cor para bordas (azul escuro saturado) */
-    
+    --primary-color: #00BFFF;
+    --secondary-hover-color: #FFD700; /* NOVA: Cor de destaque para interações */
+    --gradient-start: #031424;
+    --gradient-end: #06283D;
+    --card-dark-blue: #06283D;
+    --text-light: #F0F0F0;
+    --text-muted: #B0C4DE;
+    --border-color: #1A4D6F;
+    --font-family-primary: 'Poppins', sans-serif;
     --spacing-unit: 1.5rem;
 }
 
-/* Reset Básico */
+/* Reset Básico e Padrões */
 * {
     margin: 0;
     padding: 0;
@@ -22,6 +22,7 @@
 html {
     scroll-behavior: smooth;
     height: 100%;
+    scroll-padding-top: 80px; /* <-- ADICIONE ESTA LINHA */
 }
 
 body {
@@ -30,16 +31,13 @@ body {
     color: var(--text-light);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
     height: 100%;
     overflow-x: hidden;
-
-    /* NOVO: Degradê em azul para o fundo do corpo inteiro */
     background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end)) no-repeat center center fixed;
-    background-size: cover; /* Garante que o degradê cubra toda a área */
+    background-size: cover;
 }
 
-/* Container para centralizar o conteúdo */
+/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -71,23 +69,25 @@ body {
 /* Estilo de Seções */
 .section {
     padding: 6rem 0;
-    /* Usando a cor de fundo sólida para as seções para cobrir o degradê do body */
-    background-color: var(--card-dark-blue); /* Ou var(--gradient-end) se quiser menos contraste */
-}
-
-.section:nth-of-type(even) {
-    /* Seções alternadas para dar mais profundidade - pode ser um tom diferente do card-dark-blue ou um rgba */
-    background-color: rgba(6, 40, 61, 0.9); /* Um rgba do gradient-end com opacidade para ver o fundo um pouco */
 }
 
 /* --- Barra de Navegação (Header) --- */
+/* --- Barra de Navegação (Header) --- */
 .header {
-    background-color: var(--card-dark-blue); /* Fundo do cabeçalho */
+    background-color: rgba(3, 20, 36, 0.85); /* Fundo um pouco mais escuro e com opacidade */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco para navegadores modernos */
     padding: 1rem 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    
+    /* Propriedades para fixar o menu no topo */
     position: sticky;
     top: 0;
-    z-index: 1000;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Garante que o menu fique acima de todos os outros elementos */
+
+    /* Transição suave para qualquer mudança de estado */
+    transition: background-color 0.3s ease;
 }
 
 .navbar {
@@ -103,10 +103,9 @@ body {
     text-decoration: none;
 }
 
-/* LINKS DE NAVEGAÇÃO - VISÍVEL POR PADRÃO EM DESKTOP */
 .nav-links {
     list-style: none;
-    display: flex; /* Garante que os links apareçam em desktop */
+    display: flex;
 }
 
 .nav-links li {
@@ -116,41 +115,47 @@ body {
 .nav-links a {
     color: var(--text-light);
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 500;
     transition: color 0.3s ease;
     padding: 0.5rem 0;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--primary-color);
+    color: var(--secondary-hover-color);
 }
 
-/* BOTÃO DO MENU HAMBÚRGUER - ESCONDIDO POR PADRÃO EM DESKTOP */
 .menu-toggle {
-    display: none; /* Garante que o hambúrguer esteja oculto em desktop */
+    display: none;
     background: transparent;
     border: none;
     color: var(--text-light);
     font-size: 1.8rem;
     cursor: pointer;
-    padding: 0.5rem;
-    line-height: 1;
 }
 
-
+/* --- Seção Principal (Hero) --- */
 /* --- Seção Principal (Hero) --- */
 .hero {
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     text-align: center;
-    /* Para o hero, podemos usar um degradê sutil ou uma cor sólida com overlay */
-    background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); /* Degradê escuro sobre o fundo do body */
     position: relative;
-    overflow: hidden;
+    
+    /* Define a imagem de fundo */
+    background-image: url('../img/hero-background.jpg');
+    
+    /* Garante que a imagem cubra toda a área */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    /* Efeito Parallax */
+    background-attachment: fixed; 
 }
 
+/* Camada escura (overlay) para garantir a legibilidade do texto */
 .hero::before {
     content: '';
     position: absolute;
@@ -158,11 +163,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* MUDADO: Não é mais um overlay puro, pode ser um filtro ou um fundo mais escuro para garantir legibilidade */
-    background: transparent; /* A cor de fundo já fará o trabalho, ou poderíamos manter um rgba para um duplo overlay */
+    background-color: rgba(6, 40, 61, 0.85); /* <-- OPACIDADE AUMENTADA */
     z-index: 1;
 }
-/* Remova ou ajuste o .hero::before se o background já for escuro o suficiente */
 
 .hero .container {
     position: relative;
@@ -170,7 +173,7 @@ body {
 }
 
 .hero-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -182,21 +185,31 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: 4.5rem; /* <-- AUMENTADO */
     margin-bottom: 1rem;
     line-height: 1.1;
-    color: var(--text-light);
 }
 
 .hero-content .description {
     color: var(--text-muted);
-    font-size: 1.5rem;
+    font-size: 1.7rem; /* <-- AUMENTADO */
     margin-bottom: 1.5rem;
+    min-height: 60px; 
+}
+
+.typed-cursor {
+    color: var(--primary-color);
+    font-weight: 300;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 .hero-content .tagline {
     font-size: 1.2rem;
-    color: var(--text-light);
+    margin-top: 1rem;
     margin-bottom: 2rem;
 }
 
@@ -215,12 +228,12 @@ body {
     transition: all 0.3s ease;
     cursor: pointer;
     font-size: 1rem;
+    border: 2px solid var(--primary-color);
 }
 
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--card-dark-blue);
-    border: 2px solid var(--primary-color);
 }
 
 .btn-primary:hover {
@@ -231,7 +244,6 @@ body {
 .btn-secondary {
     background-color: transparent;
     color: var(--primary-color);
-    border: 2px solid var(--primary-color);
 }
 
 .btn-secondary:hover {
@@ -239,54 +251,64 @@ body {
     color: var(--card-dark-blue);
 }
 
-.btn i {
-    margin-left: 0.5rem;
-}
+.btn i { margin-left: 0.5rem; }
 
 /* --- Seção Sobre Mim --- */
-/* Novos estilos para a estrutura com a foto de perfil */
 .about-content-wrapper {
     display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-    background-color: var(--card-dark-blue);
+    align-items: center;
+    gap: 3rem;
+    background-color: rgba(3, 20, 36, 0.5);
     padding: 2.5rem;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
 }
 
 .about-image {
     flex-shrink: 0;
     width: 200px;
     height: 200px;
-    overflow: hidden;
     border-radius: 50%;
     border: 4px solid var(--primary-color);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .about-image .profile-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 50%;
 }
 
 .about-text {
     flex-grow: 1;
-    line-height: 1.8;
     font-size: 1.1rem;
 }
 
-.about-text p {
-    margin-bottom: 1rem;
-    color: var(--text-light);
+.about-text p { margin-bottom: 1rem; }
+.about-text p:last-child { margin-bottom: 0; }
+
+/* --- Seção Habilidades e Projetos --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
-/* --- Seção Habilidades --- */
-.skills-grid {
+/* MELHORIA: Alinhamento dos cards de Habilidades */
+.skills-grid, .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    align-items: stretch; /* Garante que os cards na mesma linha se estiquem */
+}
+
+.skill-item, .project-card {
+    transition: all 0.3s ease-in-out;
+}
+
+.skill-item:hover, .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .skill-item {
@@ -294,12 +316,10 @@ body {
     padding: 2rem;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.skill-item:hover {
-    transform: translateY(-5px);
+    border: 1px solid var(--border-color);
+    /* MELHORIA: Transforma o card em um container flex para alinhar o conteúdo */
+    display: flex;
+    flex-direction: column;
 }
 
 .skill-item i {
@@ -311,7 +331,6 @@ body {
 .skill-item h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--text-light);
 }
 
 .skill-item ul {
@@ -319,6 +338,8 @@ body {
     padding: 0;
     text-align: left;
     margin-top: 1rem;
+    /* MELHORIA: Faz a lista crescer para ocupar o espaço disponível, alinhando os cards */
+    flex-grow: 1;
 }
 
 .skill-item ul li {
@@ -329,109 +350,55 @@ body {
 }
 
 .skill-item ul li::before {
-    content: '\f00c'; /* Checkmark icon from Font Awesome */
+    content: '\f00c';
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     color: var(--primary-color);
     position: absolute;
     left: 0;
-    top: 0;
-}
-
-/* --- Seção Projetos --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-/* Força 2 colunas em telas maiores que 768px */
-@media (min-width: 769px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 .project-card {
     background-color: var(--card-dark-blue);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--border-color);
 }
 
-.project-card:hover {
-    transform: translateY(-5px);
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px; /* Altura fixa para as imagens dos projetos */
-    object-fit: cover;
-    display: block;
-}
-
-.project-card h3 {
-    font-size: 1.4rem;
-    margin: 1.5rem 1.5rem 0.5rem;
-    color: var(--text-light);
-}
-
-.project-card p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    padding: 0 1.5rem 1.5rem;
+.project-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
 }
 
-.project-card .project-links {
-    padding: 0 1.5rem 1.5rem;
-    display: flex;
-    gap: 0.8rem;
-    flex-wrap: wrap;
-    margin-top: auto;
+.project-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
 }
 
-.project-card .btn-sm {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-    background-color: var(--primary-color);
-    color: var(--card-dark-blue);
-    border: 2px solid var(--primary-color);
+.project-content p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    flex-grow: 1;
 }
 
-.project-card .btn-sm:hover {
-    background-color: transparent;
-    color: var(--primary-color);
-}
+.project-links { margin-top: 1.5rem; }
 
-/* Estilo para o botão "Ver Mais Projetos" */
-.more-projects-button-container {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.more-projects-button-container .btn {
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
-}
-
-
-/* --- Seção Experiência e Educação (Timeline Style) --- */
+/* --- Timeline (Experiência e Formação) --- */
 .timeline {
     position: relative;
     max-width: 900px;
     margin: 0 auto;
-    padding-left: 20px;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
+    left: 8px;
     width: 4px;
     height: 100%;
     background-color: var(--border-color);
@@ -444,19 +411,19 @@ body {
     border-radius: 10px;
     margin-bottom: 2rem;
     position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
     margin-left: 40px;
 }
 
 .timeline-dot {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     background-color: var(--primary-color);
     border-radius: 50%;
     position: absolute;
-    left: -28px;
-    top: 2rem;
-    border: 3px solid var(--accent-dark-blue);
+    left: -31px;
+    top: 1.8rem;
+    border: 4px solid var(--gradient-start);
 }
 
 .timeline-date {
@@ -466,26 +433,94 @@ body {
     font-weight: 600;
 }
 
-.timeline-item h3 {
-    font-size: 1.3rem;
-    color: var(--text-light);
-    margin-bottom: 0.2rem;
-}
+.timeline-item h3 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+.timeline-item h4 { font-size: 1rem; color: var(--text-muted); margin-bottom: 0.8rem; }
+.timeline-item p { font-size: 0.95rem; }
 
-.timeline-item h4 {
-    font-size: 1rem;
+/* --- Rodapé --- */
+.footer {
+    background-color: var(--gradient-start);
+    padding: 2.5rem 0;
+    text-align: center;
     color: var(--text-muted);
-    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
 }
 
-.timeline-item p {
-    font-size: 0.95rem;
-    color: var(--text-light);
+.footer-social-links { margin-bottom: 1rem; }
+.footer-social-links a {
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    margin: 0 0.75rem;
+    transition: color 0.3s ease;
+}
+.footer-social-links a:hover { color: var(--primary-color); }
+
+.footer p .footer-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer p .footer-link:hover { color: var(--primary-color); }
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--card-dark-blue);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        border-top: 1px solid var(--border-color);
+    }
+    .nav-links.show { display: flex; }
+    .nav-links li { margin: 0; text-align: center; }
+    .nav-links a { display: block; padding: 1rem; border-bottom: 1px solid var(--border-color); }
+    .nav-links li:last-child a { border-bottom: none; }
+    .menu-toggle { display: block; }
+    .hero-content h1 { font-size: 3rem; }
+    .hero-content .description { font-size: 1.2rem; min-height: 40px; }
+    .about-content-wrapper { flex-direction: column; align-items: center; text-align: center; }
+    .about-image { margin-bottom: 2rem; }
 }
 
-/* Certificações */
+@media (max-width: 576px) {
+    .section-title { font-size: 2rem; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content .description { font-size: 1rem; }
+    .hero-buttons { flex-direction: column; gap: 0.8rem; }
+    .btn { padding: 0.8rem 1.5rem; }
+}
+
+/* MELHORIA: Estilização da Barra de Rolagem */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gradient-start);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* ===============================================================
+   CÓDIGO DE CORREÇÃO PARA CERTIFICAÇÕES E CONTATO
+   - Cole este bloco no final do seu arquivo style.css
+   =============================================================== */
+
+/* --- Estilos para Certificações --- */
 .certifications-title {
-    margin-top: 4rem;
+    margin-top: 6rem; /* Aumenta o espaço depois da timeline */
 }
 
 .certifications-grid {
@@ -496,42 +531,59 @@ body {
 
 .certification-item {
     background-color: var(--card-dark-blue);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 10px;
+    border: 1px solid var(--border-color);
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.certification-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .certification-item i {
     font-size: 2.5rem;
     color: var(--primary-color);
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .certification-item p {
     font-size: 1rem;
     color: var(--text-light);
     font-weight: 500;
+    margin-bottom: 0.5rem;
 }
 
-/* --- Seção Contato --- */
+.certification-item span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* --- Estilos para a grade de Contato --- */
 .contact-info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    margin-bottom: 3rem;
-    text-align: center;
+    margin-bottom: 4rem; /* Aumenta o espaço antes do formulário */
 }
 
 .contact-info-item {
     background-color: var(--card-dark-blue);
     padding: 2rem;
     border-radius: 10px;
+    border: 1px solid var(--border-color);
+    text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.contact-info-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .contact-info-item i {
@@ -549,6 +601,7 @@ body {
 .contact-info-item p {
     font-size: 1rem;
     color: var(--text-muted);
+    word-wrap: break-word; /* Garante que o email não quebre o layout */
 }
 
 .contact-info-item a {
@@ -561,24 +614,23 @@ body {
     color: var(--primary-color);
 }
 
-/* Formulário de Contato */
+/* --- Estilos para o Formulário de Contato --- */
 .contact-form {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
 }
 
 .contact-form input,
 .contact-form textarea {
+    width: 100%;
     padding: 1rem;
     border-radius: 5px;
     border: 1px solid var(--border-color);
-    background-color: var(--accent-dark-blue);
+    background-color: var(--card-dark-blue);
     color: var(--text-light);
     font-family: var(--font-family-primary);
     font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 .contact-form input::placeholder,
@@ -587,147 +639,99 @@ body {
 }
 
 .contact-form textarea {
-    min-height: 120px;
+    min-height: 150px;
     resize: vertical;
 }
 
+.contact-form button {
+    width: 100%;
+}
 
-/* --- Rodapé --- */
-.footer {
-    background-color: var(--card-dark-blue);
-    padding: 2rem 0;
+/* Em assets/css/style.css */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
     text-align: center;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-top: 3rem;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    position: relative; /* Essencial para o overlay */
+
+    /* --- A MÁGICA ACONTECE AQUI --- */
+    
+    /* 1. Define a imagem de fundo */
+    background-image: url('../img/hero-background.jpg'); /* O ../ sobe um nível de pasta para encontrar a pasta img */
+    
+    /* 2. Garante que a imagem cubra toda a área */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    /* 3. (OPCIONAL) Efeito Parallax: a imagem fica fixa enquanto a página rola */
+    background-attachment: fixed; 
 }
 
-/* --- Responsividade (Media Queries) --- */
-@media (max-width: 992px) {
-    .navbar {
-        justify-content: space-between;
-        padding: 1rem var(--spacing-unit);
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: var(--card-dark-blue);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        padding: 1rem 0;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-        border-top: 1px solid var(--border-color);
-        z-index: 999;
-    }
-
-    .nav-links.show {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 0;
-        text-align: center;
-    }
-
-    .nav-links a {
-        padding: 0.8rem 1rem;
-        display: block;
-        border-bottom: 1px solid var(--border-color);
-    }
-
-    .nav-links li:last-child a {
-        border-bottom: none;
-    }
-
-    .menu-toggle {
-        display: block;
-        background: transparent;
-        border: none;
-        color: var(--text-light);
-        font-size: 1.8rem;
-        cursor: pointer;
-        padding: 0.5rem;
-        line-height: 1;
-    }
-
-    .hero-content h1 {
-        font-size: 3rem;
-    }
-
-    .hero-content .description {
-        font-size: 1.2rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .skills-grid,
-    .projects-grid,
-    .certifications-grid,
-    .contact-info-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .timeline-item {
-        margin-left: 20px;
-    }
-
-    .timeline::before {
-        left: 0;
-    }
-
-    .timeline-dot {
-        left: -8px;
-    }
-
-    /* Responsividade para a seção Sobre Mim com foto */
-    .about-content-wrapper {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .about-image {
-        margin-bottom: 2rem;
-    }
+/* Camada escura (overlay) para garantir a legibilidade do texto */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(6, 40, 61, 0.85); /* <-- AUMENTADO PARA 85% */
+    z-index: 1;
 }
 
-@media (max-width: 576px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content .description {
-        font-size: 1rem;
-    }
-
-    .btn {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .contact-info-grid {
-        grid-template-columns: 1fr;
-    }
+/* Garante que o conteúdo do hero fique na frente do overlay */
+.hero .container {
+    position: relative;
+    z-index: 2;
 }
-/* Estilo para links no rodapé */
-.footer p .footer-link {
-    color: var(--text-muted); /* Cor de texto suave */
+
+/* ===============================================================
+   ESTILOS PARA OS ÍCONES DOS CARDS DE PORTFÓLIO
+   - Cole este bloco no final do seu style.css
+   =============================================================== */
+
+/* Transforma os cards inteiros em links sem a linha azul padrão */
+.project-card-link {
     text-decoration: none;
-    transition: color 0.3s ease;
-    margin-left: 10px; /* Espaçamento entre o texto de copyright e o link */
 }
 
-.footer p .footer-link:hover {
-    color: var(--primary-color); /* Cor de destaque ao passar o mouse */
+/* Garante que o conteúdo dentro do card se alinhe corretamente */
+.project-card {
+    height: 100%; /* Faz o card ocupar todo o espaço do link */
+    text-align: center; /* Centraliza o ícone e o texto */
+}
+
+/* Estilo principal para os ícones */
+.project-icon {
+    font-size: 4rem; /* Tamanho do ícone */
+    color: var(--primary-color);
+    margin: 2rem 0; /* Espaçamento acima e abaixo do ícone */
+    transition: transform 0.3s ease;
+}
+
+/* Efeito de animação no ícone ao passar o mouse sobre o card */
+.project-card:hover .project-icon {
+    transform: scale(1.1);
+}
+
+/* Garante que o texto dentro do card volte a ser alinhado à esquerda */
+.project-content {
+    text-align: left;
+}
+
+/* Remove a necessidade do container de links, já que o card é o link */
+.project-card .project-links {
+    display: none;
+}
+
+/* ===============================================================
+   CORREÇÃO: Garante a cor correta dos títulos nos cards de portfólio
+   - Cole este bloco no final do seu style.css
+   =============================================================== */
+
+.project-card .project-content h3 {
+    color: var(--text-light); /* Força a cor do texto principal (branco/claro) */
 }
