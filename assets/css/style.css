@@ -297,7 +297,7 @@ body {
 /* MELHORIA: Alinhamento dos cards de Habilidades */
 .skills-grid, .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     align-items: stretch; /* Garante que os cards na mesma linha se estiquem */
 }
