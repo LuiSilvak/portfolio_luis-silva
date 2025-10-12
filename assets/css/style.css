@@ -435,7 +435,12 @@ body {
 
 .timeline-item h3 { font-size: 1.3rem; margin-bottom: 0.2rem; }
 .timeline-item h4 { font-size: 1rem; color: var(--text-muted); margin-bottom: 0.8rem; }
-.timeline-item p { font-size: 0.95rem; }
+.timeline-item p { 
+    font-size: 0.95rem;
+    text-align: justify;
+    hyphens: auto; /* Opcional, mas recomendado: quebra palavras longas para evitar grandes espaços */ 
+    line-height: 1.9; /* Aumentado de 1.6 (padrão) para dar mais espaço vertical */
+}
 
 /* --- Rodapé --- */
 .footer {
