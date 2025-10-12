@@ -1,0 +1,327 @@
+/* =================================================================
+   ARQUIVO CSS UNIVERSAL PARA TODAS AS PÁGINAS DE PORTFÓLIO
+   - Salve este arquivo como style.css em:
+     - portfolios/it-support/css/
+     - portfolios/frontend/css/
+     - portfolios/mechanical/css/
+     - portfolios/data-analysis/css/
+   ================================================================= */
+
+/* GERAL */
+:root {
+    --bg-dark: #06283D;
+    --bg-light: #F0F2F5;
+    --primary: #00BFFF;
+    --text-dark: #EAEAEA;
+    --text-muted-dark: #B0C4DE;
+    --card-dark: #0A3D62;
+    --border-dark: #1A4D6F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.portfolio-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 280px;
+    background-color: #031424;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid var(--border-dark);
+}
+
+.back-button {
+    align-self: flex-start;
+    color: var(--text-muted-dark);
+    text-decoration: none;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.back-button:hover {
+    color: var(--primary);
+}
+
+.profile .profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    margin-bottom: 1rem;
+}
+
+.profile h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.profile p {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.sidebar-nav a {
+    display: block;
+    color: var(--text-muted-dark);
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    transition: color 0.3s;
+}
+
+.sidebar-nav a:hover {
+    color: var(--primary);
+}
+
+/* CONTEÚDO PRINCIPAL */
+.main-content {
+    flex: 1;
+    padding: 3rem;
+    overflow-y: auto;
+}
+
+.main-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.main-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted-dark);
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+/* CONTROLES (FILTROS E BUSCA) */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filters .filter-btn {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+    border: 1px solid var(--border-dark);
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.filters .filter-btn:hover, .filters .filter-btn.active {
+    background-color: var(--primary);
+    color: var(--bg-dark);
+    border-color: var(--primary);
+}
+
+#searchInput {
+    padding: 0.7rem;
+    border-radius: 5px;
+    border: 1px solid var(--border-dark);
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* GRID DE PROJETOS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--card-dark);
+    border-radius: 10px;
+    border: 1px solid var(--border-dark);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.15);
+}
+
+.project-card .card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: var(--text-muted-dark);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.card-tags .tag {
+    background-color: var(--border-dark);
+    color: var(--primary);
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--card-dark);
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 960px;
+    position: relative;
+    border: 1px solid var(--border-dark);
+}
+
+.close-button {
+    color: var(--text-muted-dark);
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: var(--primary);
+}
+
+.modal-content h3 { font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
+.modal-content p { color: var(--text-muted-dark); margin-bottom: 1.5rem; }
+.modal-body iframe, .modal-body img {
+    width: 100%;
+    min-height: 500px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
+}
+
+.modal-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.modal-links a {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--primary);
+    color: var(--bg-dark);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid var(--primary);
+}
+.modal-links a.repo-link {
+    background-color: transparent;
+    color: var(--primary);
+}
+
+.modal-links a:hover {
+    background-color: #00AADD;
+    border-color: #00AADD;
+}
+.modal-links a.repo-link:hover {
+    background-color: var(--primary);
+    color: var(--bg-dark);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+    .portfolio-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-dark);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content { padding: 1.5rem; }
+    .controls { flex-direction: column; align-items: stretch; }
+    #searchInput { max-width: none; }
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    .modal-body iframe, .modal-body img {
+        min-height: 300px;
+    }
+}

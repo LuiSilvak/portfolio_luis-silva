@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luís Silva | Portfólio de Desenvolvimento Front-End</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="portfolio-container">
+        <aside class="sidebar">
+            <a href="../../index.html" class="back-button">&larr; Voltar ao Início</a>
+            <div class="profile">
+                <img src="../../assets/img/luis-silva-perfil.png" alt="Foto de Luís Silva" class="profile-photo">
+                <h1>Luís Silva</h1>
+                <p>Desenvolvedor Front-End</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="https://www.linkedin.com/in/luissilvak" target="_blank">LinkedIn</a>
+                <a href="https://github.com/LuiSilvak" target="_blank">GitHub</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h2>Portfólio de Desenvolvimento Front-End</h2>
+                <p>Projetos focados na criação de interfaces de usuário interativas, responsivas e performáticas, utilizando tecnologias modernas como Vue.js.</p>
+            </header>
+
+            <div class="controls">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="todos">Todos</button>
+                    <button class="filter-btn" data-filter="Vue.js">Vue.js</button>
+                    <button class="filter-btn" data-filter="JavaScript">JavaScript</button>
+                    <button class="filter-btn" data-filter="API">API</button>
+                    <button class="filter-btn" data-filter="CSS">CSS</button>
+                </div>
+                <input type="text" id="searchInput" placeholder="Pesquisar projeto...">
+            </div>
+
+            <section id="projects-grid" class="projects-grid">
+                </section>
+        </main>
+    </div>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+            <div class="modal-body"></div>
+            <div id="modalLinks" class="modal-links"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/script.js"></script>
+</body>
+</html>

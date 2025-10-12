@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.querySelector('#typed-specializations')) {
         const typedOptions = {
             strings: [
-                'Analista de Dados&nbsp;|&nbsp;Técnico em Informática&nbsp;|&nbsp;Desenvolvedor Front-End&nbsp;|&nbsp;Engenheiro Mecânico'
+                'Analista de Dados&nbsp;|&nbsp;Desenvolvedor Full Stack&nbsp;|&nbsp;Técnico em Informática&nbsp;|&nbsp;Engenheiro Mecânico'
             ],
             typeSpeed: 40,
             startDelay: 500,
