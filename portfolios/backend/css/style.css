@@ -1,182 +1,260 @@
-/* =================================================================
-   ARQUIVO CSS UNIVERSAL PARA TODAS AS PÁGINAS DE PORTFÓLIO
-   - Salve este arquivo como style.css em:
-     - portfolios/it-support/css/
-     - portfolios/frontend/css/
-     - portfolios/mechanical/css/
-     - portfolios/data-analysis/css/
-   ================================================================= */
-
-/* GERAL */
+/* =========================================
+   VARIÁVEIS GERAIS (mesmas do site principal)
+========================================= */
 :root {
-    --bg-dark: #06283D;
-    --bg-light: #F0F2F5;
-    --primary: #00BFFF;
-    --text-dark: #EAEAEA;
-    --text-muted-dark: #B0C4DE;
-    --card-dark: #0A3D62;
-    --border-dark: #1A4D6F;
+    --primary-color: #00BFFF;
+    --secondary-hover-color: #FFD700;
+    --gradient-start: #031424;
+    --gradient-end: #06283D;
+    --card-dark-blue: #06283D;
+    --text-light: #F0F0F0;
+    --text-muted: #B0C4DE;
+    --border-color: #1A4D6F;
+    --font-family-primary: 'Poppins', sans-serif;
+    --spacing-unit: 1.5rem;
 }
 
+/* =========================================
+   RESET BÁSICO
+========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-dark);
-    line-height: 1.6;
+html, body {
+    height: 100%;
 }
 
+body {
+    font-family: var(--font-family-primary);
+    background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end)) no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--gradient-start);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* =========================================
+   LAYOUT PRINCIPAL
+========================================= */
 .portfolio-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* SIDEBAR */
+/* ===== SIDEBAR ===== */
 .sidebar {
-    width: 280px;
-    background-color: #031424;
-    padding: 2rem;
+    width: 260px;
+    background-color: #020C16;
+    border-right: 1px solid var(--border-color);
+    padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border-right: 1px solid var(--border-dark);
+    gap: 2rem;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    min-height: 100vh;
 }
 
 .back-button {
-    align-self: flex-start;
-    color: var(--text-muted-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--text-muted);
     text-decoration: none;
-    margin-bottom: 2rem;
     font-size: 0.9rem;
-    transition: color 0.3s;
+    transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .back-button:hover {
-    color: var(--primary);
+    color: var(--primary-color);
+    transform: translateX(-2px);
 }
 
-.profile .profile-photo {
+.profile {
+    text-align: center;
+}
+
+.profile-photo {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid var(--primary);
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
     margin-bottom: 1rem;
 }
 
 .profile h1 {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     margin-bottom: 0.25rem;
 }
 
 .profile p {
-    font-size: 1rem;
-    color: var(--primary);
-    margin-bottom: 2rem;
-    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
 }
 
 .sidebar-nav a {
-    display: block;
-    color: var(--text-muted-dark);
+    font-size: 1.2rem; /* Aumentando o tamanho da fonte */
+    padding: 10px 15px; /* Dando um pouco mais de espaçamento */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre o ícone e o texto */
+    color: var(--text-light);
     text-decoration: none;
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .sidebar-nav a:hover {
-    color: var(--primary);
+    color: var(--secondary-hover-color);
 }
 
-/* CONTEÚDO PRINCIPAL */
+.sidebar-nav i {
+    font-size: 1.5rem; /* Tamanho dos ícones */
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
 .main-content {
     flex: 1;
-    padding: 3rem;
-    overflow-y: auto;
+    padding: 2.5rem 3rem;
 }
 
+/* Cabeçalho */
 .main-header h2 {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
+    font-size: 2.3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
 }
 
 .main-header p {
-    font-size: 1.1rem;
-    color: var(--text-muted-dark);
-    max-width: 800px;
-    margin-bottom: 2rem;
+    max-width: 720px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 0.98rem;
 }
 
-/* CONTROLES (FILTROS E BUSCA) */
+/* =========================================
+   CONTROLES (FILTROS + BUSCA)
+========================================= */
 .controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    margin: 2.5rem 0 2rem;
     flex-wrap: wrap;
-    gap: 1rem;
 }
 
-.filters .filter-btn {
-    background-color: var(--card-dark);
-    color: var(--text-dark);
-    border: 1px solid var(--border-dark);
-    padding: 0.6rem 1.2rem;
-    border-radius: 5px;
+/* Botões de filtro */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.filter-btn {
+    padding: 0.55rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-light);
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
     font-weight: 500;
-    transition: all 0.3s;
+    transition: all 0.25s ease;
 }
 
-.filters .filter-btn:hover, .filters .filter-btn.active {
-    background-color: var(--primary);
-    color: var(--bg-dark);
-    border-color: var(--primary);
+.filter-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    box-shadow: 0 0 0 1px rgba(0, 191, 255, 0.25);
 }
 
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: #06283D;
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 18px rgba(0, 191, 255, 0.35);
+}
+
+/* Campo de busca */
 #searchInput {
-    padding: 0.7rem;
-    border-radius: 5px;
-    border: 1px solid var(--border-dark);
-    background-color: var(--card-dark);
-    color: var(--text-dark);
-    font-family: 'Poppins', sans-serif;
+    max-width: 320px;
     width: 100%;
-    max-width: 300px;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background-color: rgba(3, 20, 36, 0.85);
+    color: var(--text-light);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
-/* GRID DE PROJETOS */
+#searchInput::placeholder {
+    color: var(--text-muted);
+}
+
+#searchInput:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px rgba(0, 191, 255, 0.35);
+    background-color: rgba(3, 20, 36, 0.95);
+}
+
+/* =========================================
+   GRID DE PROJETOS
+========================================= */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+    margin-bottom: 4rem;
 }
 
 .project-card {
-    background-color: var(--card-dark);
-    border-radius: 10px;
-    border: 1px solid var(--border-dark);
+    background-color: var(--card-dark-blue);
+    border-radius: 12px;
     overflow: hidden;
+    border: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    border-color: var(--primary-color);
 }
 
-.project-card .card-image {
+.card-image {
     width: 100%;
     height: 180px;
     object-fit: cover;
@@ -184,144 +262,225 @@ body {
 }
 
 .card-content {
-    padding: 1rem;
-    flex-grow: 1;
+    padding: 1.5rem 1.5rem 1.25rem;
     display: flex;
     flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
 }
 
 .card-content h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-dark);
+    font-size: 1.15rem;
+    line-height: 1.3;
 }
 
 .card-content p {
-    font-size: 0.9rem;
-    color: var(--text-muted-dark);
-    margin-bottom: 1rem;
-    flex-grow: 1;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
 }
 
+/* Tags de tecnologias */
 .card-tags {
+    margin-top: 0.5rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
-.card-tags .tag {
-    background-color: var(--border-dark);
-    color: var(--primary);
+.tag {
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
     font-size: 0.75rem;
-    padding: 0.3rem 0.6rem;
-    border-radius: 5px;
     font-weight: 500;
+    color: var(--text-light);
+    background-color: rgba(0, 191, 255, 0.12);
+    border: 1px solid rgba(0, 191, 255, 0.4);
 }
 
-/* MODAL */
+/* =========================================
+   MODAL DE PROJETOS
+========================================= */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.85);
-    backdrop-filter: blur(5px);
+    z-index: 999;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
 }
 
 .modal-content {
-    background-color: var(--card-dark);
-    margin: 5% auto;
-    padding: 2rem;
-    border-radius: 10px;
-    width: 90%;
+    background-color: #031626;
+    border-radius: 14px;
     max-width: 960px;
+    width: 100%;
+    padding: 2rem 2.2rem 2.2rem;
     position: relative;
-    border: 1px solid var(--border-dark);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
 }
 
 .close-button {
-    color: var(--text-muted-dark);
     position: absolute;
     top: 1rem;
-    right: 1.5rem;
-    font-size: 2rem;
-    font-weight: bold;
+    right: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--text-muted);
     cursor: pointer;
-    transition: color 0.3s;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .close-button:hover {
-    color: var(--primary);
+    color: var(--primary-color);
+    transform: scale(1.05);
 }
 
-.modal-content h3 { font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
-.modal-content p { color: var(--text-muted-dark); margin-bottom: 1.5rem; }
-.modal-body iframe, .modal-body img {
+#modalTitle {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+#modalDescription {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* Área principal do conteúdo (iframe / imagem) */
+.modal-body {
+    margin-bottom: 1.5rem;
+}
+
+/* Iframe responsivo 16:9 */
+.modal-body iframe {
     width: 100%;
-    min-height: 500px;
+    min-height: 420px;
     border: none;
-    border-radius: 5px;
-    background-color: #000;
+    border-radius: 10px;
 }
 
+/* Imagem grande */
+.modal-body img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Links do modal */
 .modal-links {
-    margin-top: 1.5rem;
     display: flex;
-    gap: 1rem;
     flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 .modal-links a {
-    display: inline-block;
-    padding: 0.7rem 1.5rem;
-    background-color: var(--primary);
-    color: var(--bg-dark);
     text-decoration: none;
-    border-radius: 5px;
+    font-size: 0.9rem;
     font-weight: 600;
-    transition: all 0.3s;
-    border: 2px solid var(--primary);
+    padding: 0.55rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid var(--primary-color);
+    transition: all 0.25s ease;
 }
-.modal-links a.repo-link {
+
+.live-link {
+    background-color: var(--primary-color);
+    color: #06283D;
+}
+
+.live-link:hover {
     background-color: transparent;
-    color: var(--primary);
+    color: var(--primary-color);
 }
 
-.modal-links a:hover {
-    background-color: #00AADD;
-    border-color: #00AADD;
-}
-.modal-links a.repo-link:hover {
-    background-color: var(--primary);
-    color: var(--bg-dark);
+.repo-link {
+    background-color: transparent;
+    color: var(--primary-color);
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 1024px) {
+.repo-link:hover {
+    background-color: var(--primary-color);
+    color: #06283D;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+@media (max-width: 1100px) {
     .portfolio-container {
         flex-direction: column;
     }
+
     .sidebar {
+        position: static;
         width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid var(--border-dark);
+        min-height: auto;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 1.2rem 1.5rem;
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+    }
+
+    .profile-photo {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 0;
+    }
+
+    .main-content {
+        padding: 2rem 1.5rem 2.5rem;
     }
 }
 
 @media (max-width: 768px) {
-    .main-content { padding: 1.5rem; }
-    .controls { flex-direction: column; align-items: stretch; }
-    #searchInput { max-width: none; }
-    .modal-content {
-        width: 95%;
-        padding: 1.5rem;
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
     }
-    .modal-body iframe, .modal-body img {
-        min-height: 300px;
+
+    .filters {
+        justify-content: flex-start;
+    }
+
+    .modal-content {
+        padding: 1.6rem 1.4rem 1.8rem;
+    }
+
+    .modal-body iframe {
+        min-height: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile {
+        flex-direction: row;
+        align-items: center;
     }
 }
