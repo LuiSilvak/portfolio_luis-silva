@@ -3,60 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luís Silva | Portfólio Multidisciplinar</title>
-    <meta name="description" content="Portfólio de Luís Silva, profissional multidisciplinar atuando como Analista de Dados, Técnico em Informática, Desenvolvedor Front-End e Engenheiro Mecânico.">
+
+    <title>Luís Silva | Desenvolvedor Full Stack & Engenheiro de Dados</title>
+
+    <meta name="description" content="Portfólio profissional de Luís Silva. Desenvolvedor Full Stack, Engenheiro de Dados, Analista de Dados e Especialista em Automação com Python, APIs e Power BI.">
+    <meta name="author" content="Luís Silva">
+    <meta name="keywords" content="Desenvolvedor Full Stack, Python, Django, Data Engineer, Power BI, Analista de Dados, Vue.js, Portfólio">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Luís Silva | Desenvolvedor Full Stack & Engenheiro de Dados">
+    <meta property="og:description" content="Portfólio profissional com projetos em dados, automação, back-end e front-end.">
+    <meta property="og:image" content="https://seusite.github.io/assets/img/preview.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seusite.github.io">
+
     <link rel="icon" href="assets/img/favicon.png" type="image/png">
-    
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" defer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" defer>
 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="#home" class="logo">Luís Silva</a>
-                <button class="menu-toggle" aria-label="Abrir Menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="#home" class="active">Início</a></li>
-                    <li><a href="#about">Sobre Mim</a></li>
-                    <li><a href="#skills">Habilidades</a></li>
-                    <li><a href="#projects">Portfólios</a></li>
-                    <li><a href="#experience">Experiência</a></li>
-                    <li><a href="#education">Formação</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header class="header" role="banner">
+    <div class="container">
+        <nav class="navbar" aria-label="Menu principal">
+            <a href="#home" class="logo">Luís Silva</a>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content" data-aos="fade-up">
-                    <p class="subtitle">Olá, eu sou</p>
-                    <h1>Luís Silva</h1>
-                    <p class="description"><span id="typed-specializations"></span></p>
-                    <p class="tagline">Criando soluções integradas que unem dados, software e engenharia para resolver desafios complexos.</p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">Meus Portfólios</a>
-                        <a href="https://www.linkedin.com/in/luissilvak" target="_blank" class="btn btn-secondary">Conectar no LinkedIn <i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
+            <button class="menu-toggle" aria-label="Abrir Menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Início</a></li>
+                <li><a href="#about">Sobre Mim</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#projects">Portfólios</a></li>
+                <li><a href="#experience">Experiência</a></li>
+                <li><a href="#education">Formação</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content" data-aos="fade-up">
+            <p class="subtitle">Olá, eu sou</p>
+
+            <h1 aria-label="Nome do desenvolvedor">Luís Silva</h1>
+
+            <p class="description">
+                Desenvolvedor Full Stack & Engenheiro de Dados
+            </p>
+
+            <p class="tagline">
+                Especialista em soluções com Python, APIs, Data Analytics e Automação
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary" role="button" aria-label="Ver portfólios">Meus Portfólios</a>
+                <a href="https://www.linkedin.com/in/luissilvak" target="_blank" class="btn btn-secondary" role="button" aria-label="Acessar LinkedIn">
+                    Conectar no LinkedIn <i class="fab fa-linkedin"></i>
+                </a>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <section id="about" class="section about-me">
             <div class="container">
                 <h2 class="section-title">Sobre Mim</h2>
                 <div class="about-content-wrapper">
                     <div class="about-image" data-aos="fade-right" data-aos-delay="100">
-                        <img src="assets/img/luis-silva-perfil.png" alt="Foto de perfil de Luís Silva" class="profile-photo" loading="lazy">
+                        <img src="assets/img/luis-silva-perfil.jpeg" alt="Foto de perfil de Luís Silva" class="profile-photo" loading="lazy">
                     </div>
                     <div class="about-text" data-aos="fade-up">
                         <p>Minha jornada profissional começou com a precisão e a lógica da <strong>Engenharia Mecânica</strong>, onde desenvolvi uma base sólida para projetar e resolver problemas tangíveis. Essa mentalidade analítica me guiou naturalmente para a <strong>Informática</strong> e, em seguida, para a <strong>Análise de Dados</strong>, buscando otimizar sistemas e transformar informações brutas em insights estratégicos.</p>
@@ -431,20 +459,27 @@
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-social-links">
-                <a href="https://www.linkedin.com/in/luissilvak" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/LuiSilvak" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-            <p>&copy; 2025 Luís Silva. Todos os direitos reservados.</p>
-            <p><a href="assets/docs/Luis_Silva_Curriculo.pdf" target="_blank" class="footer-link">Download Currículo</a></p>
+    <div class="container">
+        <div class="footer-social-links">
+            <a href="https://www.linkedin.com/in/luissilvak" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/LuiSilvak" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
         </div>
-    </footer>
-    
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    
-    <script src="assets/js/main.js"></script>
-    
+
+        <p>
+            &copy; <span data-current-year>2025</span> Luís Silva. Todos os direitos reservados.
+        </p>
+
+        <p>
+            <a href="assets/docs/Luis_Silva_Curriculo.pdf" target="_blank" class="footer-link">
+                Download Currículo
+            </a>
+        </p>
+    </div>
+</footer>
+
+<script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script defer src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script defer src="assets/js/main.js"></script>
+
 </body>
 </html>

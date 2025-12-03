@@ -22,7 +22,7 @@
 html {
     scroll-behavior: smooth;
     height: 100%;
-    scroll-padding-top: 80px; /* <-- ADICIONE ESTA LINHA */
+    /* REMOVIDO: scroll-padding-top: 120px; */
 }
 
 body {
@@ -72,21 +72,18 @@ body {
 }
 
 /* --- Barra de Navegação (Header) --- */
-/* --- Barra de Navegação (Header) --- */
 .header {
-    background-color: rgba(3, 20, 36, 0.85); /* Fundo um pouco mais escuro e com opacidade */
-    backdrop-filter: blur(10px); /* Efeito de vidro fosco para navegadores modernos */
+    background-color: rgba(3, 20, 36, 0.85);
+    backdrop-filter: blur(10px);
     padding: 1rem 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    
-    /* Propriedades para fixar o menu no topo */
+
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Garante que o menu fique acima de todos os outros elementos */
+    z-index: 1000;
 
-    /* Transição suave para qualquer mudança de estado */
     transition: background-color 0.3s ease;
 }
 
@@ -135,27 +132,20 @@ body {
 }
 
 /* --- Seção Principal (Hero) --- */
-/* --- Seção Principal (Hero) --- */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     text-align: center;
     position: relative;
-    
-    /* Define a imagem de fundo */
+
     background-image: url('../img/hero-background.jpg');
-    
-    /* Garante que a imagem cubra toda a área */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    
-    /* Efeito Parallax */
-    background-attachment: fixed; 
+    background-attachment: fixed;
 }
 
-/* Camada escura (overlay) para garantir a legibilidade do texto */
 .hero::before {
     content: '';
     position: absolute;
@@ -163,7 +153,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(6, 40, 61, 0.85); /* <-- OPACIDADE AUMENTADA */
+    background-color: rgba(6, 40, 61, 0.85);
     z-index: 1;
 }
 
@@ -185,16 +175,16 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 4.5rem; /* <-- AUMENTADO */
+    font-size: 4.5rem;
     margin-bottom: 1rem;
     line-height: 1.1;
 }
 
 .hero-content .description {
     color: var(--text-muted);
-    font-size: 1.7rem; /* <-- AUMENTADO */
+    font-size: 1.7rem;
     margin-bottom: 1.5rem;
-    min-height: 60px; 
+    min-height: 60px;
 }
 
 .typed-cursor {
@@ -294,12 +284,11 @@ body {
     gap: 2rem;
 }
 
-/* MELHORIA: Alinhamento dos cards de Habilidades */
 .skills-grid, .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    align-items: stretch; /* Garante que os cards na mesma linha se estiquem */
+    align-items: stretch;
 }
 
 .skill-item, .project-card {
@@ -317,7 +306,6 @@ body {
     border-radius: 10px;
     text-align: center;
     border: 1px solid var(--border-color);
-    /* MELHORIA: Transforma o card em um container flex para alinhar o conteúdo */
     display: flex;
     flex-direction: column;
 }
@@ -338,7 +326,6 @@ body {
     padding: 0;
     text-align: left;
     margin-top: 1rem;
-    /* MELHORIA: Faz a lista crescer para ocupar o espaço disponível, alinhando os cards */
     flex-grow: 1;
 }
 
@@ -387,7 +374,7 @@ body {
 
 .project-links { margin-top: 1.5rem; }
 
-/* --- Timeline (Experiência e Formação) --- */
+/* --- Timeline --- */
 .timeline {
     position: relative;
     max-width: 900px;
@@ -438,8 +425,8 @@ body {
 .timeline-item p { 
     font-size: 0.95rem;
     text-align: justify;
-    hyphens: auto; /* Opcional, mas recomendado: quebra palavras longas para evitar grandes espaços */ 
-    line-height: 1.9; /* Aumentado de 1.6 (padrão) para dar mais espaço vertical */
+    hyphens: auto;
+    line-height: 1.9;
 }
 
 /* --- Rodapé --- */
@@ -500,7 +487,7 @@ body {
     .btn { padding: 0.8rem 1.5rem; }
 }
 
-/* MELHORIA: Estilização da Barra de Rolagem */
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -518,14 +505,9 @@ body {
     background: var(--primary-color);
 }
 
-/* ===============================================================
-   CÓDIGO DE CORREÇÃO PARA CERTIFICAÇÕES E CONTATO
-   - Cole este bloco no final do seu arquivo style.css
-   =============================================================== */
-
-/* --- Estilos para Certificações --- */
+/* Certificações */
 .certifications-title {
-    margin-top: 6rem; /* Aumenta o espaço depois da timeline */
+    margin-top: 6rem;
 }
 
 .certifications-grid {
@@ -568,12 +550,12 @@ body {
     font-style: italic;
 }
 
-/* --- Estilos para a grade de Contato --- */
+/* Contato */
 .contact-info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    margin-bottom: 4rem; /* Aumenta o espaço antes do formulário */
+    margin-bottom: 4rem;
 }
 
 .contact-info-item {
@@ -606,7 +588,7 @@ body {
 .contact-info-item p {
     font-size: 1rem;
     color: var(--text-muted);
-    word-wrap: break-word; /* Garante que o email não quebre o layout */
+    word-wrap: break-word;
 }
 
 .contact-info-item a {
@@ -619,7 +601,6 @@ body {
     color: var(--primary-color);
 }
 
-/* --- Estilos para o Formulário de Contato --- */
 .contact-form {
     max-width: 700px;
     margin: 0 auto;
@@ -652,91 +633,47 @@ body {
     width: 100%;
 }
 
-/* Em assets/css/style.css */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    position: relative; /* Essencial para o overlay */
-
-    /* --- A MÁGICA ACONTECE AQUI --- */
-    
-    /* 1. Define a imagem de fundo */
-    background-image: url('../img/hero-background.jpg'); /* O ../ sobe um nível de pasta para encontrar a pasta img */
-    
-    /* 2. Garante que a imagem cubra toda a área */
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    
-    /* 3. (OPCIONAL) Efeito Parallax: a imagem fica fixa enquanto a página rola */
-    background-attachment: fixed; 
-}
-
-/* Camada escura (overlay) para garantir a legibilidade do texto */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(6, 40, 61, 0.85); /* <-- AUMENTADO PARA 85% */
-    z-index: 1;
-}
-
-/* Garante que o conteúdo do hero fique na frente do overlay */
-.hero .container {
-    position: relative;
-    z-index: 2;
-}
-
-/* ===============================================================
-   ESTILOS PARA OS ÍCONES DOS CARDS DE PORTFÓLIO
-   - Cole este bloco no final do seu style.css
-   =============================================================== */
-
-/* Transforma os cards inteiros em links sem a linha azul padrão */
+/* Ícones dos cards de portfólio */
 .project-card-link {
     text-decoration: none;
 }
 
-/* Garante que o conteúdo dentro do card se alinhe corretamente */
 .project-card {
-    height: 100%; /* Faz o card ocupar todo o espaço do link */
-    text-align: center; /* Centraliza o ícone e o texto */
+    height: 100%;
+    text-align: center;
 }
 
-/* Estilo principal para os ícones */
 .project-icon {
-    font-size: 4rem; /* Tamanho do ícone */
+    font-size: 4rem;
     color: var(--primary-color);
-    margin: 2rem 0; /* Espaçamento acima e abaixo do ícone */
+    margin: 2rem 0;
     transition: transform 0.3s ease;
 }
 
-/* Efeito de animação no ícone ao passar o mouse sobre o card */
 .project-card:hover .project-icon {
     transform: scale(1.1);
 }
 
-/* Garante que o texto dentro do card volte a ser alinhado à esquerda */
 .project-content {
     text-align: left;
 }
 
-/* Remove a necessidade do container de links, já que o card é o link */
 .project-card .project-links {
     display: none;
 }
 
-/* ===============================================================
-   CORREÇÃO: Garante a cor correta dos títulos nos cards de portfólio
-   - Cole este bloco no final do seu style.css
-   =============================================================== */
-
+/* Títulos dos cards de portfólio */
 .project-card .project-content h3 {
-    color: var(--text-light); /* Força a cor do texto principal (branco/claro) */
+    color: var(--text-light);
+}
+
+/* Efeito de scroll no header */
+.header--scrolled {
+    background-color: rgba(3, 20, 36, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Compensa a altura do header fixo ao navegar por âncoras */
+main section[id] {
+    scroll-margin-top: 120px; /* ajuste conforme a altura real do header */
 }
