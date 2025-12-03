@@ -35,6 +35,8 @@ body {
     overflow-x: hidden;
     background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end)) no-repeat center center fixed;
     background-size: cover;
+    padding-top: 50px; 
+    
 }
 
 /* Container */
@@ -675,5 +677,5 @@ body {
 
 /* Compensa a altura do header fixo ao navegar por âncoras */
 main section[id] {
-    scroll-margin-top: 120px; /* ajuste conforme a altura real do header */
+    scroll-margin-top: 50px; /* ajuste conforme a altura real do header */
 }
