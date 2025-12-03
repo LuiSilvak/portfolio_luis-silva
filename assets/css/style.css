@@ -73,16 +73,16 @@ body {
 
 /* --- Barra de Navegação (Header) --- */
 .header {
-    background-color: rgba(3, 20, 36, 0.85);
+    background-color: rgba(3, 20, 36, 0.95);
     backdrop-filter: blur(10px);
     padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
 
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 9999;
 
     transition: background-color 0.3s ease;
 }
