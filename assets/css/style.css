@@ -1,3 +1,5 @@
+/* style.css (COMPLETO) */
+
 /* Variáveis CSS */
 :root {
     --primary-color: #00BFFF;
@@ -533,10 +535,26 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* >>> ALTERAÇÃO NECESSÁRIA (premium badge) <<< */
 .certification-item i {
-    font-size: 2.5rem;
+    font-size: 1.9rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+    background: rgba(0, 191, 255, 0.12);
+    border: 1px solid rgba(0, 191, 255, 0.35);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 6px 14px rgba(0, 0, 0, 0.35);
 }
 
 .certification-item p {
@@ -678,4 +696,216 @@ body {
 /* Compensa a altura do header fixo ao navegar por âncoras */
 main section[id] {
     scroll-margin-top: 50px; /* ajuste conforme a altura real do header */
+}
+
+/* ============================
+   CORES POR ÁREA (ACENTO)
+   - Mantém o fundo do card
+   - Troca apenas: ícone + barra superior + hover
+============================ */
+
+/* Card com acento */
+.project-card.card-accent {
+    position: relative;
+}
+
+/* Barra superior colorida (acento) */
+.project-card.card-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-color, var(--primary-color));
+}
+
+/* Ícone usa a cor de acento */
+.project-card.card-accent .project-icon {
+    color: var(--accent-color, var(--primary-color));
+}
+
+/* Hover: contorno sutil na cor de acento */
+.project-card.card-accent:hover {
+    box-shadow: 0 0 0 1px var(--accent-color, var(--primary-color)), 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Paleta por área (variáveis por classe) */
+.project-card.data-analysis { --accent-color: #00BFFF; }          /* Ciano */
+.project-card.data-engineering { --accent-color: #1E90FF; }       /* Azul */
+.project-card.analytics-engineering { --accent-color: #20B2AA; }  /* Verde-azulado */
+.project-card.data-science { --accent-color: #6A5ACD; }           /* Roxo azulado */
+
+.project-card.frontend { --accent-color: #00E5FF; }               /* UI */
+.project-card.backend { --accent-color: #4682B4; }                /* Aço */
+.project-card.automation { --accent-color: #32CD32; }             /* Verde */
+
+.project-card.it-support { --accent-color: #5F9EA0; }             /* Cinza azulado */
+.project-card.mechanical { --accent-color: #FF8C00; }             /* Laranja */
+
+/* ============================
+   LINKEDIN - MAIS CERTIFICAÇÕES (PREMIUM)
+============================ */
+
+.linkedin-certs.premium {
+    margin-top: 3rem;
+    padding: 2.25rem;
+    border-radius: 14px;
+
+    /* fundo premium: duas camadas sutis */
+    background:
+        radial-gradient(900px 220px at 50% 0%, rgba(0, 191, 255, 0.12), transparent 60%),
+        linear-gradient(180deg, rgba(3, 20, 36, 0.65), rgba(3, 20, 36, 0.25));
+
+    border: 1px solid rgba(26, 77, 111, 0.75);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.linkedin-certs-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.linkedin-certs-title {
+    color: var(--text-light);
+    font-size: 1.35rem;
+    margin-bottom: 0.35rem;
+}
+
+.linkedin-certs-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.linkedin-certs-card.premium {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+
+    padding: 1.35rem 1.5rem;
+    border-radius: 12px;
+
+    background:
+        linear-gradient(180deg, rgba(6, 40, 61, 0.95), rgba(6, 40, 61, 0.75));
+
+    border: 1px solid rgba(26, 77, 111, 0.9);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.linkedin-certs-card.premium::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(600px 160px at 10% 0%, rgba(0, 191, 255, 0.10), transparent 60%);
+    pointer-events: none;
+}
+
+.linkedin-certs-card.premium:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 191, 255, 0.55);
+    box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.45),
+        0 0 0 1px rgba(0, 191, 255, 0.25);
+}
+
+.linkedin-certs-card-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.linkedin-badge {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+
+    background: rgba(0, 191, 255, 0.12);
+    border: 1px solid rgba(0, 191, 255, 0.35);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.linkedin-badge i {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.linkedin-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.linkedin-certs-card-title {
+    font-weight: 600;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.linkedin-certs-card-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Botão premium específico */
+.btn.btn-linkedin {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+
+    padding: 0.85rem 1.2rem;
+    border-radius: 10px;
+
+    background: rgba(0, 191, 255, 0.10);
+    color: var(--text-light);
+    border: 1px solid rgba(0, 191, 255, 0.35);
+
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn.btn-linkedin:hover {
+    transform: translateY(-2px);
+    background: rgba(0, 191, 255, 0.18);
+    border-color: rgba(0, 191, 255, 0.55);
+}
+
+.btn.btn-linkedin i {
+    font-size: 0.95rem;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .linkedin-certs.premium { padding: 1.5rem; }
+
+    .linkedin-certs-card.premium {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        padding: 1.25rem;
+    }
+
+    .linkedin-certs-card-left {
+        justify-content: center;
+    }
+
+    .btn.btn-linkedin {
+        width: 100%;
+    }
 }
