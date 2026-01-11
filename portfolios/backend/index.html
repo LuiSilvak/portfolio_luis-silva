@@ -1,74 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luís Silva | Portfólio de Desenvolvimento Back-End</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luís Silva | Portfólio de Desenvolvimento Back-End</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
-<body>
-    <div class="portfolio-container">
-        <aside class="sidebar">
-            <a href="../../index.html" class="back-button">&larr; Voltar ao Início</a>
-            <div class="profile">
-                <img src="../../assets/img/luis-silva-perfil.png" alt="Foto de Luís Silva" class="profile-photo">
-                <h1>Luís Silva</h1>
-                <p>Desenvolvedor Back-End</p>
-            </div>
-            <nav class="sidebar-nav">
-                <a href="https://www.linkedin.com/in/luissilvak" target="_blank">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
 
-                <a href="https://github.com/LuiSilvak" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+<body class="theme-backend">
+  <div class="portfolio-container">
+    <aside class="sidebar">
+      <a href="../../index.html" class="back-button" aria-label="Voltar ao início">
+  <span class="back-icon" aria-hidden="true">
+    <i class="fas fa-arrow-left"></i>
+  </span>
+  <span class="back-text">Voltar ao Início</span>
+</a>
 
-                <a href="../../assets/docs/Luis_Silva_CV_Analise_Dados_PT.pdf" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Currículo (PT)
-                </a>
+      <div class="profile">
+        <img src="../../assets/img/luis-silva-perfil.png" alt="Foto de Luís Silva" class="profile-photo" />
+        <h1>Luís Silva</h1>
+        <p>Desenvolvimento Back-End</p>
+      </div>
 
-                <a href="../../assets/docs/Luis_Silva_CV_Data_Analyst_EN.pdf" target="_blank">
-                    <i class="fas fa-language"></i> Resume (EN)
-                </a>
-            </nav>
-        </aside>
+      <nav class="sidebar-nav">
+        <a href="https://www.linkedin.com/in/luissilvak" target="_blank">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
 
-        <main class="main-content">
-            <header class="main-header">
-                <h2>Portfólio de Desenvolvimento Back-End</h2>
-                <p>Projetos focados na criação de interfaces de usuário interativas, responsivas e performáticas, utilizando tecnologias modernas como Vue.js.</p>
-            </header>
+        <a href="https://github.com/LuiSilvak" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
 
-            <div class="controls">
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="todos">Todos</button>
-                    <button class="filter-btn" data-filter="Vue.js">Vue.js</button>
-                    <button class="filter-btn" data-filter="JavaScript">JavaScript</button>
-                    <button class="filter-btn" data-filter="API">API</button>
-                    <button class="filter-btn" data-filter="CSS">CSS</button>
-                </div>
-                <input type="text" id="searchInput" placeholder="Pesquisar projeto...">
-            </div>
+        <a href="../../assets/docs/Luis_Silva_CV_Analise_Dados_PT.pdf" target="_blank">
+          <i class="fas fa-file-pdf"></i> Currículo (PT)
+        </a>
 
-            <section id="projects-grid" class="projects-grid">
-                </section>
-        </main>
-    </div>
+        <a href="../../assets/docs/Luis_Silva_CV_Data_Analyst_EN.pdf" target="_blank">
+          <i class="fas fa-language"></i> Resume (EN)
+        </a>
+      </nav>
+    </aside>
 
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3 id="modalTitle"></h3>
-            <p id="modalDescription"></p>
-            <div class="modal-body"></div>
-            <div id="modalLinks" class="modal-links"></div>
+    <main class="main-content">
+      <header class="main-header">
+        <h2>Portfólio de Desenvolvimento Back-End</h2>
+        <p>
+          Projetos com APIs REST, autenticação, bancos de dados, filas, integrações, boas práticas,
+          arquitetura e deploy com containers.
+        </p>
+      </header>
+
+      <div class="controls">
+        <div class="filters">
+          <button class="filter-btn active" data-filter="todos">Todos</button>
+          <button class="filter-btn" data-filter="API">API</button>
+          <button class="filter-btn" data-filter="Python">Python</button>
+          <button class="filter-btn" data-filter="Node.js">Node.js</button>
+          <button class="filter-btn" data-filter="Java">Java</button>
+          <button class="filter-btn" data-filter="SQL">SQL</button>
+          <button class="filter-btn" data-filter="Docker">Docker</button>
         </div>
-    </div>
 
-    <script type="module" src="./js/script.js"></script>
+        <input type="text" id="searchInput" placeholder="Pesquisar projeto..." />
+      </div>
+
+      <section id="projects-grid" class="projects-grid"></section>
+    </main>
+  </div>
+
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+      <div class="modal-body"></div>
+      <div id="modalLinks" class="modal-links"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/script.js"></script>
 </body>
 </html>
