@@ -11,14 +11,40 @@ const modalBody = document.querySelector('.modal-body');
 const modalLinks = document.getElementById('modalLinks');
 const closeModalBtn = document.querySelector('.close-button');
 
+// ÍCONE PADRÃO POR TECNOLOGIA (para placeholder)
+function pickIcon(tecnologias = []) {
+    const t = tecnologias.map(x => String(x).toLowerCase());
+
+    if (t.includes('power bi') || t.includes('dax')) return 'fa-chart-column';
+    if (t.includes('python') || t.includes('pandas')) return 'fa-python';
+    if (t.includes('sql') || t.includes('postgresql')) return 'fa-database';
+    if (t.includes('etl')) return 'fa-gears';
+
+    return 'fa-folder-open';
+}
+
 // RENDERIZAR CARDS
 function renderCards(projetosParaRenderizar) {
     projectsGrid.innerHTML = '';
+
     projetosParaRenderizar.forEach(projeto => {
         const card = document.createElement('div');
         card.className = 'project-card';
+
+        // Capa: imagem se existir; senão, placeholder premium com ícone
+        const hasImage = Boolean(projeto.imagem && String(projeto.imagem).trim().length > 0);
+        const icon = pickIcon(projeto.tecnologias);
+
+        const coverHTML = hasImage
+            ? `<img src="${projeto.imagem}" alt="${projeto.titulo}" class="card-image">`
+            : `
+                <div class="card-image placeholder" aria-hidden="true">
+                    <div class="ph-icon"><i class="fas ${icon}"></i></div>
+                </div>
+            `;
+
         card.innerHTML = `
-            <img src="${projeto.imagem}" alt="${projeto.titulo}" class="card-image">
+            ${coverHTML}
             <div class="card-content">
                 <h3>${projeto.titulo}</h3>
                 <p>${projeto.descricao}</p>
@@ -27,6 +53,7 @@ function renderCards(projetosParaRenderizar) {
                 </div>
             </div>
         `;
+
         card.addEventListener('click', () => openModal(projeto));
         projectsGrid.appendChild(card);
     });
@@ -36,7 +63,7 @@ function renderCards(projetosParaRenderizar) {
 function openModal(projeto) {
     modalTitle.textContent = projeto.titulo;
     modalDescription.textContent = projeto.descricao;
-    
+
     // Limpa o conteúdo anterior
     modalBody.innerHTML = '';
     modalLinks.innerHTML = '';
@@ -62,7 +89,7 @@ function openModal(projeto) {
 // FECHAR MODAL
 function closeModal() {
     modal.style.display = 'none';
-    modalBody.innerHTML = ''; // Limpa o iframe para parar vídeos/aplicações
+    modalBody.innerHTML = '';
 }
 
 // FILTRAGEM E BUSCA
@@ -71,8 +98,12 @@ function filterAndSearch() {
     const filtroAtivo = document.querySelector('.filter-btn.active').dataset.filter;
 
     const projetosFiltrados = projetos.filter(p => {
-        const porBusca = p.titulo.toLowerCase().includes(busca) || p.descricao.toLowerCase().includes(busca);
+        const porBusca =
+            p.titulo.toLowerCase().includes(busca) ||
+            p.descricao.toLowerCase().includes(busca);
+
         const porFiltro = filtroAtivo === 'todos' || p.tecnologias.includes(filtroAtivo);
+
         return porBusca && porFiltro;
     });
 
@@ -90,10 +121,9 @@ filterBtns.forEach(btn => {
 
 searchInput.addEventListener('input', filterAndSearch);
 closeModalBtn.addEventListener('click', closeModal);
+
 window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        closeModal();
-    }
+    if (e.target === modal) closeModal();
 });
 
 // INICIALIZAÇÃO
