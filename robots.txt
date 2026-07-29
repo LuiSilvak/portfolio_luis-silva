@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://luissilvak.github.io/sitemap.xml
+Sitemap: https://luisilvak.github.io/portfolio_luis-silva/sitemap.xml

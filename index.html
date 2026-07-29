@@ -1,4 +1,3 @@
-<!-- index.html (COMPLETO) -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,562 +9,744 @@
     <meta name="description" content="Portfólio profissional de Luís Silva. Desenvolvedor Full Stack, Engenheiro de Dados, Analista de Dados e Especialista em Automação com Python, APIs e Power BI.">
     <meta name="author" content="Luís Silva">
     <meta name="keywords" content="Desenvolvedor Full Stack, Python, Django, Data Engineer, Power BI, Analista de Dados, Vue.js, Portfólio">
+    <meta name="theme-color" content="#05080f">
+    <link rel="canonical" href="https://luisilvak.github.io/portfolio_luis-silva/">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Luís Silva | Analista de Dados & Desenvolvedor Full Stack">
     <meta property="og:description" content="Portfólio profissional com projetos em dados, automação, back-end e front-end.">
-    <meta property="og:image" content="https://seusite.github.io/assets/img/preview.png">
+    <meta property="og:image" content="https://luisilvak.github.io/portfolio_luis-silva/assets/img/luis-silva-perfil.png">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://seusite.github.io">
+    <meta property="og:url" content="https://luisilvak.github.io/portfolio_luis-silva/">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Luís Silva | Analista de Dados & Desenvolvedor Full Stack">
+    <meta name="twitter:description" content="Portfólio profissional com projetos em dados, automação, back-end e front-end.">
+    <meta name="twitter:image" content="https://luisilvak.github.io/portfolio_luis-silva/assets/img/luis-silva-perfil.png">
 
     <link rel="icon" href="assets/img/favicon.png" type="image/png">
 
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" defer>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" defer>
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=2">
+    <script>document.documentElement.classList.add('js');</script>
+
+    <!-- Dados estruturados -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Luís Silva",
+        "jobTitle": "Analista de Dados & Desenvolvedor Full Stack",
+        "url": "https://luisilvak.github.io/portfolio_luis-silva/",
+        "sameAs": [
+            "https://www.linkedin.com/in/luissilvak",
+            "https://github.com/LuiSilvak"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "São Luís",
+            "addressRegion": "MA",
+            "addressCountry": "BR"
+        }
+    }
+    </script>
 </head>
 
 <body>
 
+<a href="#home" class="skip-link">Pular para o conteúdo</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+
 <header class="header" role="banner">
     <div class="container">
         <nav class="navbar" aria-label="Menu principal">
-            <a href="#home" class="logo">Luís Silva</a>
+            <a href="#home" class="logo">Luís Silva<span class="logo-dot"></span></a>
 
-            <button class="menu-toggle" aria-label="Abrir Menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
+            <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
 
             <ul class="nav-links">
                 <li><a href="#home" class="active">Início</a></li>
-                <li><a href="#about">Sobre Mim</a></li>
+                <li><a href="#about">Sobre</a></li>
                 <li><a href="#skills">Habilidades</a></li>
                 <li><a href="#projects">Portfólios</a></li>
                 <li><a href="#experience">Experiência</a></li>
                 <li><a href="#education">Formação</a></li>
-                <li><a href="#contact">Contato</a></li>
+                <li class="nav-cta"><a href="#contact">Contato</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
-<main>
+<main id="main">
 
-<section id="home" class="hero">
-    <div class="container">
-        <div class="hero-content" data-aos="fade-up">
-            <p class="subtitle">Olá, eu sou</p>
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero">
+        <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
 
-            <h1 aria-label="Nome do desenvolvedor">Luís Silva</h1>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge" data-reveal>
+                    <span class="pulse-dot" aria-hidden="true"></span>
+                    Disponível para novos projetos
+                </span>
 
-            <p class="description">
-                Analista de Dados & Desenvolvedor Full Stack
-            </p>
+                <h1 data-reveal style="--reveal-delay: 0.1s">
+                    Olá, eu sou<br>
+                    <span class="text-gradient">Luís Silva</span>
+                </h1>
 
-            <p class="tagline">
-                Especialista em soluções com Python, APIs, Data Analytics e Automação
-            </p>
+                <p class="hero-roles" data-reveal style="--reveal-delay: 0.2s">
+                    <span class="typed-text" id="typed-roles" aria-label="Analista de Dados, Desenvolvedor Full Stack, Engenheiro de Dados, Especialista em Automação, Engenheiro Mecânico"></span><span class="typed-cursor" aria-hidden="true">|</span>
+                </p>
 
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary" role="button" aria-label="Ver portfólios">Meus Portfólios</a>
-                <a href="https://www.linkedin.com/in/luissilvak" target="_blank" class="btn btn-secondary" role="button" aria-label="Acessar LinkedIn">
-                    Conectar no LinkedIn <i class="fab fa-linkedin"></i>
+                <p class="hero-tagline" data-reveal style="--reveal-delay: 0.3s">
+                    Transformo dados em decisões e ideias em soluções — com Python, APIs,
+                    Data Analytics e Automação.
+                </p>
+
+                <div class="hero-buttons" data-reveal style="--reveal-delay: 0.4s">
+                    <a href="#projects" class="btn btn-primary">
+                        Explorar Portfólios <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/luissilvak" target="_blank" rel="noopener" class="btn btn-secondary">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+                    </a>
+                    <a href="docs/Luis_Silva_Curriculo.pdf" target="_blank" rel="noopener" class="btn btn-ghost">
+                        <i class="fas fa-file-arrow-down" aria-hidden="true"></i> Currículo
+                    </a>
+                </div>
+
+                <div class="hero-stats" data-reveal style="--reveal-delay: 0.5s">
+                    <div class="hero-stat">
+                        <span class="stat-value"><span data-counter="13">0</span>+</span>
+                        <span class="stat-label">Anos em tecnologia</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-value"><span data-counter="9">0</span></span>
+                        <span class="stat-label">Áreas de especialização</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-value"><span data-counter="15">0</span>+</span>
+                        <span class="stat-label">Certificações</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#about" class="hero-scroll-cue" aria-label="Rolar para a próxima seção">
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+        </a>
+    </section>
+
+    <!-- ============ SOBRE ============ -->
+    <section id="about" class="section about-me">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <span class="section-eyebrow">Quem sou</span>
+                <h2 class="section-title">Sobre Mim</h2>
+            </div>
+
+            <div class="about-content-wrapper" data-reveal>
+                <div class="about-image">
+                    <img src="assets/img/luis-silva-perfil.jpeg" alt="Foto de perfil de Luís Silva" class="profile-photo" loading="lazy" width="240" height="240">
+                </div>
+                <div class="about-text">
+                    <p>Minha carreira é uma jornada da <strong>engenharia para a tecnologia</strong>, guiada pela paixão por resolver problemas e criar soluções eficientes. Hoje atuo na interseção entre <strong>dados, desenvolvimento web e engenharia mecânica</strong>, unindo o mundo físico ao digital.</p>
+                    <p>Como <strong>Analista de Dados</strong>, transformo grandes volumes de informação em insights estratégicos com <strong>Power BI, SQL e Python</strong> — dashboards e pipelines que garantem que a informação certa chegue com qualidade e rapidez à tomada de decisão. No desenvolvimento, construo aplicações web completas e escaláveis com <strong>Vue.js</strong> no front-end e <strong>Python (Django e FastAPI)</strong> no back-end, com foco especial em <strong>automação de processos (RPA)</strong>.</p>
+                    <p>Com formação em <strong>Engenharia Mecânica</strong> e pós-graduação em andamento em <strong>Indústria 4.0</strong>, mantenho projetos e estudos avançados em <strong>SolidWorks e Autodesk Inventor</strong>. Essa visão multidisciplinar me permite desenvolver ferramentas de análise e software que conversam diretamente com o chão de fábrica e o design de produto.</p>
+
+                    <div class="about-chips">
+                        <span class="chip">Python</span>
+                        <span class="chip">Django</span>
+                        <span class="chip">FastAPI</span>
+                        <span class="chip">Vue.js</span>
+                        <span class="chip">SQL</span>
+                        <span class="chip">Power BI</span>
+                        <span class="chip">RPA</span>
+                        <span class="chip">SolidWorks</span>
+                        <span class="chip">Português · Inglês · Espanhol</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ HABILIDADES ============ -->
+    <section id="skills" class="section skills section-alt">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <span class="section-eyebrow">Stack</span>
+                <h2 class="section-title">Habilidades</h2>
+                <p class="section-desc">Competências construídas ao longo de mais de uma década entre engenharia, dados e desenvolvimento.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-item" data-reveal>
+                    <span class="skill-icon"><i class="fas fa-chart-bar" aria-hidden="true"></i></span>
+                    <h3>Análise e Engenharia de Dados</h3>
+                    <ul>
+                        <li>Power BI (DAX, Power Query)</li>
+                        <li>SQL (Bancos de Dados)</li>
+                        <li>Pandas (Análise e ETL)</li>
+                        <li>Modelagem de Dados</li>
+                        <li>Visualização de Dados</li>
+                    </ul>
+                </div>
+
+                <div class="skill-item" data-reveal style="--reveal-delay: 0.08s">
+                    <span class="skill-icon"><i class="fas fa-code" aria-hidden="true"></i></span>
+                    <h3>Desenvolvimento Front-End</h3>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Vue.js</li>
+                        <li>Design Responsivo</li>
+                        <li>Consumo de APIs (REST)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-item" data-reveal style="--reveal-delay: 0.16s">
+                    <span class="skill-icon"><i class="fas fa-database" aria-hidden="true"></i></span>
+                    <h3>Desenvolvimento Back-End</h3>
+                    <ul>
+                        <li>Python, Django & FastAPI</li>
+                        <li>Criação de APIs REST</li>
+                        <li>Node.js (Básico)</li>
+                        <li>Automação de Processos</li>
+                        <li>Scripts (Python, Bash)</li>
+                    </ul>
+                </div>
+
+                <div class="skill-item" data-reveal>
+                    <span class="skill-icon"><i class="fas fa-server" aria-hidden="true"></i></span>
+                    <h3>Infraestrutura & Plataformas</h3>
+                    <ul>
+                        <li>Gestão de Servidores (Linux)</li>
+                        <li>Containerização com Docker</li>
+                        <li>Desenv. e Admin. Moodle</li>
+                        <li>WordPress</li>
+                        <li>Suporte e Administração de TI</li>
+                    </ul>
+                </div>
+
+                <div class="skill-item" data-reveal style="--reveal-delay: 0.08s">
+                    <span class="skill-icon"><i class="fas fa-tools" aria-hidden="true"></i></span>
+                    <h3>Ferramentas & Metodologias</h3>
+                    <ul>
+                        <li>Git & GitHub</li>
+                        <li>CI/CD</li>
+                        <li>Metodologias Ágeis</li>
+                        <li>Jira & Trello</li>
+                        <li>Testes Automatizados</li>
+                    </ul>
+                </div>
+
+                <div class="skill-item" data-reveal style="--reveal-delay: 0.16s">
+                    <span class="skill-icon"><i class="fas fa-cogs" aria-hidden="true"></i></span>
+                    <h3>Engenharia Mecânica & Projetos</h3>
+                    <ul>
+                        <li>SolidWorks</li>
+                        <li>AutoCAD & Inventor</li>
+                        <li>Simulação FEA (ANSYS)</li>
+                        <li>Desenho Técnico</li>
+                        <li>MATLAB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PORTFÓLIOS ============ -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <span class="section-eyebrow">Trabalhos</span>
+                <h2 class="section-title">Meus Portfólios</h2>
+                <p class="section-desc">Explore meus projetos em cada área de especialização. Cada seção contém uma galeria detalhada de trabalhos relevantes.</p>
+            </div>
+
+            <div class="projects-grid">
+                <a href="portfolios/data-analysis/" class="project-card-link" data-reveal>
+                    <div class="project-card data-analysis">
+                        <div class="project-card-top">
+                            <span class="project-icon"><i class="fas fa-chart-bar" aria-hidden="true"></i></span>
+                            <i class="fas fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Análise de Dados</h3>
+                            <p>Dashboards, automação com Python e insights de BI. Projetos construídos com Power BI, SQL e Pandas.</p>
+                        </div>
+                        <span class="project-cta">Ver projetos <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a href="portfolios/data-engineering/" class="project-card-link" data-reveal style="--reveal-delay: 0.08s">
+                    <div class="project-card data-engineering">
+                        <div class="project-card-top">
+                            <span class="project-icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></span>
+                            <i class="fas fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Engenharia de Dados</h3>
+                            <p>Pipelines de ETL, modelagem de dados e otimização de bancos para garantir a qualidade e o fluxo da informação.</p>
+                        </div>
+                        <span class="project-cta">Ver projetos <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a href="portfolios/data-science/" class="project-card-link" data-reveal style="--reveal-delay: 0.16s">
+                    <div class="project-card data-science">
+                        <div class="project-card-top">
+                            <span class="project-icon"><i class="fas fa-brain" aria-hidden="true"></i></span>
+                            <i class="fas fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Ciência de Dados</h3>
+                            <p>Análise exploratória, modelos preditivos e machine learning para resolver problemas de negócio complexos.</p>
+                        </div>
+                        <span class="project-cta">Ver projetos <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a href="portfolios/analytics-engineering/" class="project-card-link" data-reveal>
+                    <div class="project-card analytics-engineering">
+                        <div class="project-card-top">
+                            <span class="project-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></span>
+                            <i class="fas fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Engenharia Analítica</h3>
+                            <p>Modelos de dados robustos e confiáveis, focados em qualidade, testes e governança para suportar a análise de negócio.</p>
+                        </div>
+                        <span class="project-cta">Ver projetos <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a href="portfolios/mechanical/" class="project-card-link" data-reveal style="--reveal-delay: 0.08s">
+                    <div class="project-card mechanical">
+                        <div class="project-card-top">
+                            <span class="project-icon"><i class="fas fa-cogs" aria-hidden="true"></i></span>
+                            <i class="fas fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Engenharia Mecânica</h3>
+                            <p>Modelagem 3D, simulações e desenvolvimento de produtos com SolidWorks, AutoCAD e outras ferramentas.</p>
+                        </div>
+                        <span class="project-cta">Ver projetos <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a href="portfolios/frontend/" class="project-card-link" data-reveal style="--reveal-delay: 0.16s">
+                    <div class="project-card frontend">
+                        <div class="project-card-top">
+                            <span class="project-icon"><i class="fab fa-vuejs" aria-hidden="true"></i></span>
+                            <i class="fas fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Desenvolvimento Front-End</h3>
+                            <p>Interfaces interativas e responsivas com foco em Vue.js, HTML5, CSS3 e consumo de APIs.</p>
+                        </div>
+                        <span class="project-cta">Ver projetos <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a href="portfolios/backend/" class="project-card-link" data-reveal>
+                    <div class="project-card backend">
+                        <div class="project-card-top">
+                            <span class="project-icon"><i class="fas fa-server" aria-hidden="true"></i></span>
+                            <i class="fas fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Desenvolvimento Back-End</h3>
+                            <p>Lógica de servidor e APIs RESTful com Python, Django e frameworks modernos para aplicações web.</p>
+                        </div>
+                        <span class="project-cta">Ver projetos <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a href="portfolios/automation/" class="project-card-link" data-reveal style="--reveal-delay: 0.08s">
+                    <div class="project-card automation">
+                        <div class="project-card-top">
+                            <span class="project-icon"><i class="fas fa-robot" aria-hidden="true"></i></span>
+                            <i class="fas fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Automação de Processos</h3>
+                            <p>Scripts e robôs (RPA) com Python para automatizar tarefas repetitivas, web scraping e geração de relatórios.</p>
+                        </div>
+                        <span class="project-cta">Ver projetos <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a href="portfolios/it-support/" class="project-card-link" data-reveal style="--reveal-delay: 0.16s">
+                    <div class="project-card it-support">
+                        <div class="project-card-top">
+                            <span class="project-icon"><i class="fas fa-headset" aria-hidden="true"></i></span>
+                            <i class="fas fa-arrow-up-right-from-square project-arrow" aria-hidden="true"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Técnico em Informática</h3>
+                            <p>Manutenção, otimização de redes e automação de rotinas. Suporte técnico e gestão de infraestrutura de TI.</p>
+                        </div>
+                        <span class="project-cta">Ver projetos <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                    </div>
                 </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-        <section id="about" class="section about-me">
-            <div class="container">
-                <h2 class="section-title">Sobre Mim</h2>
-                <div class="about-content-wrapper">
-                    <div class="about-image" data-aos="fade-right" data-aos-delay="100">
-                        <img src="assets/img/luis-silva-perfil.jpeg" alt="Foto de perfil de Luís Silva" class="profile-photo" loading="lazy">
-                    </div>
-                    <div class="about-text" data-aos="fade-up">
-                        <p>Minha jornada profissional começou com a precisão e a lógica da <strong>Engenharia Mecânica</strong>, onde desenvolvi uma base sólida para projetar e resolver problemas tangíveis. Essa mentalidade analítica me guiou naturalmente para a <strong>Informática</strong> e, em seguida, para a <strong>Análise de Dados</strong>, buscando otimizar sistemas e transformar informações brutas em insights estratégicos.</p>
-                        <p>Hoje, como <strong>Desenvolvedor Front-End</strong>, eu uno todas essas competências. Utilizo a disciplina da engenharia, a lógica da infraestrutura de TI e o poder dos dados para construir não apenas interfaces, mas soluções completas que são bem planejadas, inteligentes e focadas na experiência do usuário.</p>
-                        <p>Seja automatizando relatórios com Python, criando dashboards interativos em Power BI ou desenvolvendo aplicações web responsivas, minha paixão é usar a tecnologia para criar ferramentas que gerem impacto real. Vamos nos conectar e explorar como essa visão multidisciplinar pode beneficiar seu projeto.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section skills">
-            <div class="container">
-                <h2 class="section-title">Habilidades</h2>
-                <div class="skills-grid">
-                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">
-                        <i class="fas fa-chart-bar"></i>
-                        <h3>Análise e Engenharia de Dados</h3>
-                        <ul>
-                            <li>Power BI (DAX, Power Query)</li>
-                            <li>SQL (Bancos de Dados)</li>
-                            <li>Pandas (Análise e ETL)</li>
-                            <li>Modelagem de Dados</li>
-                            <li>Visualização de Dados</li>
-                        </ul>
-                    </div>
-                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">
-                        <i class="fas fa-code"></i>
-                        <h3>Desenvolvimento Front-End</h3>
-                        <ul>
-                            <li>HTML5 & CSS3</li>
-                            <li>JavaScript (ES6+)</li>
-                            <li>Vue.js</li>
-                            <li>Design Responsivo</li>
-                            <li>Consumo de APIs (REST)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">
-                        <i class="fas fa-database"></i>
-                        <h3>Desenvolvimento Back-End</h3>
-                        <ul>
-                            <li>Python & Django</li>
-                            <li>Criação de APIs REST</li>
-                            <li>Node.js (Básico)</li>
-                            <li>Automação de Processos</li>
-                            <li>Scripts (Python, Bash)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-server"></i>
-                        <h3>Infraestrutura & Plataformas</h3>
-                        <ul>
-                            <li>Gestão de Servidores (Linux)</li>
-                            <li>Containerização com Docker</li>
-                            <li>Desenv. e Admin. Moodle</li>
-                            <li>WordPress</li>
-                            <li>Suporte e Administração de TI</li>
-                        </ul>
-                    </div>
-                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="600">
-                        <i class="fas fa-tools"></i>
-                        <h3>Ferramentas & Metodologias</h3>
-                        <ul>
-                            <li>Git & GitHub</li>
-                            <li>CI/CD</li>
-                            <li>Metodologias Ágeis</li>
-                            <li>Jira & Trello</li> 
-                            <li>Testes Automatizados</li>
-                        </ul>
-                    </div>
-                    <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">
-                        <i class="fas fa-cogs"></i>
-                        <h3>Engenharia Mecânica / Projetos Mecânicos</h3>
-                        <ul>
-                            <li>SolidWorks</li>
-                            <li>AutoCAD & Inventor</li>
-                            <li>Simulação FEA (ANSYS)</li>
-                            <li>Desenho Técnico</li>
-                            <li>MATLAB</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-       <section id="projects" class="section projects">
-            <div class="container">
-                <h2 class="section-title">Meus Portfólios</h2>
-                <p style="text-align: center; max-width: 600px; margin: -2rem auto 3rem; color: var(--text-muted);">
-                    Explore meus projetos em cada área de especialização. Cada seção contém uma galeria detalhada de trabalhos relevantes.
-                </p>
-                <div class="projects-grid">
-                    <a href="portfolios/data-analysis/" target="_blank" class="project-card-link" data-aos="fade-up">
-                        <div class="project-card card-accent data-analysis">
-                            <i class="fas fa-chart-bar project-icon"></i>
-                            <div class="project-content">
-                                <h3>Análise de Dados</h3>
-                                <p>Dashboards, automação com Python e insights de BI. Explore projetos construídos com Power BI, SQL e Pandas.</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="portfolios/data-engineering/" target="_blank" class="project-card-link" data-aos="fade-up" data-aos-delay="200">
-                        <div class="project-card card-accent data-engineering">
-                            <i class="fas fa-project-diagram project-icon"></i>
-                            <div class="project-content">
-                                <h3>Engenharia de Dados</h3>
-                                <p>Construção de pipelines de ETL, modelagem de dados e otimização de bancos de dados para garantir a qualidade e o fluxo da informação.</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="portfolios/data-science/" target="_blank" class="project-card-link" data-aos="fade-up" data-aos-delay="300">
-                        <div class="project-card card-accent data-science">
-                            <i class="fas fa-brain project-icon"></i>
-                            <div class="project-content">
-                                <h3>Ciência de Dados</h3>
-                                <p>Análise exploratória, criação de modelos preditivos e aplicação de machine learning para resolver problemas de negócio complexos.</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="portfolios/analytics-engineering/" target="_blank" class="project-card-link" data-aos="fade-up" data-aos-delay="200">
-                        <div class="project-card card-accent analytics-engineering">
-                            <i class="fas fa-layer-group project-icon"></i>
-                            <div class="project-content">
-                                <h3>Engenharia Analítica</h3>
-                                <p>Criação de modelos de dados robustos e confiáveis, focados em qualidade, testes e governança para suportar a análise de negócio.</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="portfolios/mechanical/" target="_blank" class="project-card-link" data-aos="fade-up" data-aos-delay="300">
-                        <div class="project-card card-accent mechanical">
-                            <i class="fas fa-cogs project-icon"></i>
-                            <div class="project-content">
-                                <h3>Engenharia Mecânica | Projetos Mecânicos</h3>
-                                <p>Modelagem 3D, simulações e desenvolvimento de produtos. Veja projetos criados com SolidWorks, AutoCAD e outras ferramentas.</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="portfolios/frontend/" target="_blank" class="project-card-link" data-aos="fade-up" data-aos-delay="200">
-                        <div class="project-card card-accent frontend">
-                            <i class="fab fa-vuejs project-icon"></i>
-                            <div class="project-content">
-                                <h3>Desenvolvimento Front-End</h3>
-                                <p>Criação de interfaces de usuário interativas e responsivas. Projetos com foco em Vue.js, HTML5, CSS3 e consumo de APIs.</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="portfolios/backend/" target="_blank" class="project-card-link" data-aos="fade-up" data-aos-delay="500">
-                        <div class="project-card card-accent backend">
-                            <i class="fas fa-server project-icon"></i>
-                            <div class="project-content">
-                                <h3>Desenvolvimento Back-End</h3>
-                                <p>Construção da lógica de servidor e APIs RESTful com Python, Django e frameworks modernos para aplicações web.</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="portfolios/automation/" target="_blank" class="project-card-link" data-aos="fade-up" data-aos-delay="600">
-                        <div class="project-card card-accent automation">
-                            <i class="fas fa-robot project-icon"></i>
-                            <div class="project-content">
-                                <h3>Automação de Processos</h3>
-                                <p>Criação de scripts e robôs (RPA) com Python para automatizar tarefas repetitivas, web scraping e geração de relatórios.</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="portfolios/it-support/" target="_blank" class="project-card-link" data-aos="fade-up" data-aos-delay="100">
-                        <div class="project-card card-accent it-support">
-                            <i class="fas fa-headset project-icon"></i>
-                            <div class="project-content">
-                                <h3>Técnico em Informática</h3>
-                                <p>Manutenção, otimização de redes e automação de rotinas. Soluções em suporte técnico e gestão de infraestrutura de TI.</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="section experience">
-            <div class="container">
+    <!-- ============ EXPERIÊNCIA ============ -->
+    <section id="experience" class="section experience section-alt">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <span class="section-eyebrow">Trajetória</span>
                 <h2 class="section-title">Experiência Profissional</h2>
-                <div class="timeline">
+            </div>
 
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">outubro de 2025 - Presente</div>
-                        <h3>Desenvolvedor de Software</h3>
-                        <h4>CRP Tecnologia (Alocado no Tribunal de Contas do Maranhão)</h4>
-                        <p>
-                            Atuando como desenvolvedor full-stack focado na modernização e criação de novos sistemas para a Escola Superior de Controle Externo do Tribunal de Contas (TCE-MA). Minhas responsabilidades incluem:
-                            <br>• <strong>Desenvolvimento Back-End:</strong> Projeto e implementação de APIs RESTful robustas com <strong>Python e Django</strong>, servindo como a espinha dorsal para os novos sistemas de controle externo e auditoria.
-                            <br>• <strong>Desenvolvimento Front-End:</strong> Construção de interfaces de usuário ricas e reativas com <strong>Vue.js</strong>, focando na criação de dashboards analíticos e formulários complexos para os servidores do Tribunal.
-                            <br>• <strong>Automação e Dados:</strong> Desenvolvimento de scripts em <strong>Python</strong> para automatizar tarefas de ETL, migração de dados de sistemas legados e geração de relatórios, garantindo a integridade e a eficiência no manuseio de dados governamentais.
-                        </p>
+            <div class="timeline">
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">out 2025 — Presente</span>
+                    <h3>Desenvolvedor de Software</h3>
+                    <h4>CRP Tecnologia · Alocado no Tribunal de Contas do Maranhão</h4>
+                    <p>Desenvolvedor full-stack focado na modernização e criação de novos sistemas para a Escola Superior de Controle Externo do TCE-MA.</p>
+                    <ul>
+                        <li><strong>Back-End:</strong> projeto e implementação de APIs RESTful robustas com Python e Django, espinha dorsal dos novos sistemas de controle externo e auditoria.</li>
+                        <li><strong>Front-End:</strong> interfaces ricas e reativas com Vue.js, com dashboards analíticos e formulários complexos para os servidores do Tribunal.</li>
+                        <li><strong>Automação e Dados:</strong> scripts em Python para ETL, migração de dados de sistemas legados e geração de relatórios com integridade garantida.</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="chip">Python</span>
+                        <span class="chip">Django</span>
+                        <span class="chip">Vue.js</span>
+                        <span class="chip">ETL</span>
                     </div>
+                </div>
 
-                    <div class="timeline-item" data-aos="fade-left">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">julho de 2022 - setembro de 2025 (3 anos e 3 meses)</div>
-                        <h3>Programador Júnior</h3>
-                        <h4>PD Case Informática Ltda (Alocado no Tribunal de Contas do Maranhão)</h4>
-                        <p>
-                            Como parte da equipe de sustentação de sistemas da Escola Superior de Controle Externo (ESCEX) do TCE-MA, fui responsável por garantir a estabilidade e a evolução de aplicações críticas para o funcionamento do órgão. Minhas atividades principais eram:
-                            <br>• <strong>Manutenção Corretiva e Evolutiva:</strong> Diagnostiquei e resolvi bugs em sistemas de controle de processos e gestão de pessoal, desenvolvidos em <strong>PHP, JavaScript e SQL</strong>. Implementei novas funcionalidades conforme as demandas das diretorias do Tribunal, melhorando a usabilidade e a performance.
-                            <br>• <strong>Análise de Requisitos:</strong> Participei ativamente no levantamento de requisitos junto aos usuários finais (servidores do Tribunal) para traduzir necessidades de negócio em especificações técnicas claras para o desenvolvimento.
-                            <br>• <strong>Otimização de Banco de Dados:</strong> Analisei e otimizei queries <strong>SQL</strong> complexas para melhorar o tempo de resposta de relatórios e telas do sistema, impactando diretamente na produtividade dos usuários.
-                        </p>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">jul 2022 — set 2025 · 3 anos e 3 meses</span>
+                    <h3>Programador Júnior</h3>
+                    <h4>PD Case Informática · Alocado no Tribunal de Contas do Maranhão</h4>
+                    <p>Sustentação de sistemas da Escola Superior de Controle Externo (ESCEX) do TCE-MA, garantindo a estabilidade e a evolução de aplicações críticas.</p>
+                    <ul>
+                        <li><strong>Manutenção corretiva e evolutiva:</strong> diagnóstico e correção de bugs em sistemas de controle de processos e gestão de pessoal (PHP, JavaScript e SQL), além de novas funcionalidades.</li>
+                        <li><strong>Análise de requisitos:</strong> levantamento junto aos usuários finais para traduzir necessidades de negócio em especificações técnicas claras.</li>
+                        <li><strong>Otimização de banco de dados:</strong> análise e otimização de queries SQL complexas, melhorando o tempo de resposta de relatórios e telas.</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="chip">PHP</span>
+                        <span class="chip">JavaScript</span>
+                        <span class="chip">SQL</span>
                     </div>
+                </div>
 
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">setembro de 2021 - agosto de 2022 (1 ano)</div>
-                        <h3>Estagiário Técnico de T.I</h3>
-                        <h4>Tribunal de Contas do Estado do Maranhão</h4>
-                        <p>
-                            Atuei em um papel multidisciplinar, apoiando diversas frentes de tecnologia:
-                            <br>• <strong>Análise de Dados:</strong> Desenvolvi dashboards interativos em <strong>Power BI</strong>, transformando dados brutos de sistemas internos em KPIs acionáveis para a gestão. Otimizei consultas e manipulei dados com <strong>SQL e VBA</strong>.
-                            <br>• <strong>Desenvolvimento Web:</strong> Prestei manutenção e implementei melhorias em plataformas de EAD (<strong>Moodle</strong>) e portais institucionais (<strong>WordPress</strong>).
-                            <br>• <strong>Infraestrutura e Automação:</strong> Criei scripts em <strong>Shell e Python</strong> para automatizar a extração de logs e a verificação de serviços em servidores Linux.
-                        </p>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">set 2021 — ago 2022 · 1 ano</span>
+                    <h3>Estagiário Técnico de T.I</h3>
+                    <h4>Tribunal de Contas do Estado do Maranhão</h4>
+                    <p>Papel multidisciplinar, apoiando diversas frentes de tecnologia:</p>
+                    <ul>
+                        <li><strong>Análise de dados:</strong> dashboards interativos em Power BI, transformando dados brutos em KPIs acionáveis; otimização de consultas com SQL e VBA.</li>
+                        <li><strong>Desenvolvimento web:</strong> manutenção e melhorias em plataformas EAD (Moodle) e portais institucionais (WordPress).</li>
+                        <li><strong>Infraestrutura e automação:</strong> scripts em Shell e Python para extração de logs e verificação de serviços em servidores Linux.</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="chip">Power BI</span>
+                        <span class="chip">SQL</span>
+                        <span class="chip">Moodle</span>
+                        <span class="chip">Linux</span>
                     </div>
+                </div>
 
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">novembro de 2012 - agosto de 2021 (8 anos 10 meses)</div>
-                        <h3>Consultor de TI & Desenvolvedor de Automação (Autônomo)</h3>
-                        <h4>Autônomo</h4>
-                        <p>
-                            Como consultor independente, atuei como um parceiro estratégico para pequenas e médias empresas, diagnosticando GAPs operacionais e desenvolvendo soluções tecnológicas sob medida para aumentar a eficiência e a inteligência de negócio. Minha atuação era dividida em três pilares principais:
-                            <br>
-                            <br>• <strong>Desenvolvimento & Automação de Processos:</strong>
-                            <br>  - Criei ferramentas e scripts customizados em <strong>Python (com Pandas) e VBA</strong> para automatizar processos de ETL (Extração, Transformação e Carga), reduzindo o tempo de processamento manual de relatórios em até 80% para diversos clientes.
-                            <br>  - Desenvolvi soluções de web scraping para coleta de dados de mercado, alimentando bases de dados internas e permitindo análises competitivas.
-                            <br>
-                            <br>• <strong>Infraestrutura & Suporte Técnico Estratégico:</strong>
-                            <br>  - Realizei a gestão completa de infraestrutura de TI, incluindo a configuração e manutenção de servidores locais, gestão de redes e implementação de políticas de segurança e backup para recuperação de desastres.
-                            <br>  - Prestei suporte técnico especializado (Nível 1 a 3), atuando como o ponto central de TI para os clientes, garantindo a continuidade e a segurança de suas operações.
-                            <br>
-                            <br>• <strong>Capacitação & Business Intelligence:</strong>
-                            <br>  - Ministrei treinamentos personalizados em <strong>Excel Avançado e Power BI</strong>, transformando equipes com pouca familiaridade com dados em usuários capazes de criar seus próprios dashboards e análises, fomentando uma cultura data-driven.
-                        </p>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">nov 2012 — ago 2021 · 8 anos e 10 meses</span>
+                    <h3>Consultor de TI & Desenvolvedor de Automação</h3>
+                    <h4>Autônomo</h4>
+                    <p>Parceiro estratégico de pequenas e médias empresas, diagnosticando gaps operacionais e desenvolvendo soluções sob medida:</p>
+                    <ul>
+                        <li><strong>Desenvolvimento & automação:</strong> ferramentas em Python (Pandas) e VBA para automatizar ETL, reduzindo em até 80% o tempo de processamento manual de relatórios; soluções de web scraping para análises competitivas.</li>
+                        <li><strong>Infraestrutura & suporte estratégico:</strong> gestão completa de TI — servidores locais, redes, políticas de segurança e backup para recuperação de desastres; suporte especializado (níveis 1 a 3).</li>
+                        <li><strong>Capacitação & BI:</strong> treinamentos personalizados em Excel Avançado e Power BI, fomentando cultura data-driven nas equipes dos clientes.</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="chip">Python</span>
+                        <span class="chip">VBA</span>
+                        <span class="chip">Power BI</span>
+                        <span class="chip">Infraestrutura</span>
                     </div>
+                </div>
 
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">janeiro de 2018 - dezembro de 2018 (1 ano)</div>
-                        <h3>Estagiário de Engenharia de Produto & Análise de Simulação</h3>
-                        <h4>Universidade Estadual do Maranhão</h4>
-                        <p>
-                            Nesta função de pesquisa e desenvolvimento, atuei como a ponte entre a Engenharia Mecânica tradicional e a Análise de Dados, utilizando a tecnologia para acelerar e validar o ciclo de design de componentes mecânicos.
-                            <br>
-                            <br>• <strong>Projeto e Modelagem 3D (CAD):</strong>
-                            <br>  - Fui responsável pela criação de modelos 3D paramétricos complexos e pela elaboração de desenhos técnicos detalhados para fabricação, seguindo as normas ABNT/ASME, utilizando <strong>SolidWorks, AutoCAD e Inventor</strong>.
-                            <br>
-                            <br>• <strong>Simulação e Análise de Dados (CAE & BI):</strong>
-                            <br>  - Executei simulações de elementos finitos (FEA) em softwares como <strong>ANSYS</strong> para analisar o comportamento estrutural de componentes sob carga, gerando grandes volumes de dados de estresse, deformação e fadiga.
-                            <br>  - Processei e analisei esses datasets de simulação com <strong>Excel e Power BI</strong>, criando dashboards interativos que permitiam à equipe de engenheiros visualizar "hotspots" de estresse e comparar o desempenho de diferentes iterações de design de forma rápida e intuitiva.
-                            <br>
-                            <br>• <strong>Impacto e Otimização:</strong>
-                            <br>  - A aplicação da análise de dados sobre os resultados das simulações permitiu a tomada de decisões de design mais rápidas e assertivas, reduzindo significativamente o número de iterações de prototipagem e o tempo de desenvolvimento do projeto.
-                        </p>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">jan 2018 — dez 2018 · 1 ano</span>
+                    <h3>Estagiário de Engenharia de Produto & Análise de Simulação</h3>
+                    <h4>Universidade Estadual do Maranhão</h4>
+                    <p>Ponte entre a Engenharia Mecânica tradicional e a Análise de Dados, acelerando e validando o ciclo de design de componentes mecânicos:</p>
+                    <ul>
+                        <li><strong>Projeto e modelagem 3D (CAD):</strong> modelos paramétricos complexos e desenhos técnicos para fabricação (normas ABNT/ASME) com SolidWorks, AutoCAD e Inventor.</li>
+                        <li><strong>Simulação e análise (CAE & BI):</strong> simulações FEA no ANSYS para análise estrutural; dashboards em Excel e Power BI para visualizar hotspots de estresse e comparar iterações de design.</li>
+                        <li><strong>Impacto:</strong> decisões de design mais rápidas e assertivas, com redução significativa de iterações de prototipagem e do tempo de desenvolvimento.</li>
+                    </ul>
+                    <div class="timeline-tags">
+                        <span class="chip">SolidWorks</span>
+                        <span class="chip">ANSYS</span>
+                        <span class="chip">Power BI</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="education" class="section education">
-            <div class="container">
+    <!-- ============ FORMAÇÃO ============ -->
+    <section id="education" class="section education">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <span class="section-eyebrow">Estudos</span>
                 <h2 class="section-title">Formação Acadêmica</h2>
-                <div class="timeline">
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">dezembro de 2022 - setembro de 2024</div>
-                        <h3>Pós-graduação, Análise de Dados</h3>
-                        <h4>Descomplica Faculdade Digital</h4>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2020 - 2022</div>
-                        <h3>Ensino Técnico, Informática</h3>
-                        <h4>Escola SENAI de Informática - IFMA</h4>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2020 - 2021</div>
-                        <h3>Formação, Desenvolvimento de Games</h3>
-                        <h4>Instituto Federal do Maranhão</h4>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2013 - 2019</div>
-                        <h3>Bacharelado, Engenharia Mecânica</h3>
-                        <h4>Universidade Estadual do Maranhão - UEMA</h4>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2012</div>
-                        <h3>Formação. Suporte Técnico e Manutenção de Computadores</h3>
-                        <h4>Escola SENAI de Informática</h4>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="300">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">janeiro de 2010 - dezembro de 2012</div>
-                        <h3>Ensino Técnico, Técnico em Eletromecânica</h3>
-                        <h4>Centro de Ensino Técnico Dr. João Bacelar Portela</h4>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="600">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2010 - 2011</div>
-                        <h3>Formação, Suporte Técnico / Montagem e Manutenção de Computadores</h3>
-                        <h4>CMK Informática</h4>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="600">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2009 - 2010</div>
-                        <h3>Formação, Informática Intermediária / Avançada</h3>
-                        <h4>CMK Informática</h4>
-                    </div>
-                    <div class="timeline-item" data-aos="fade-right" data-aos-delay="600">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2008 - 2009</div>
-                        <h3>Formação, Informática Básica</h3>
-                        <h4>CMK Informática</h4>
-                    </div>
-                </div>
-                
-                <h2 class="section-title certifications-title">Certificações</h2>
-                <div class="certifications-grid">
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="100">
-                        <i class="fas fa-chart-pie"></i>
-                        <p>Aplicação do Power BI para Aprimoramento da Gestão</p>
-                        <span>Escola Nacional de Administração Pública - ENAP</span>
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-chart-bar"></i>
-                        <p>Power BI</p>
-                        <span>Fundacao Sousandrade de Apoio ao Desenvolvimento da Ufma</span>
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-database"></i>
-                        <p>Gerenciar Dados com o Microsoft 365</p>
-                        <span>ENAP</span>
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="200">
-                        <i class="fas fa-gamepad"></i>
-                        <p>Desenvolvedor de Jogos Eletrônicos</p>
-                        <span>Instituto Federal do Maranhão - IFMA</span>
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="300">
-                        <i class="fas fa-headset"></i>
-                        <p>Suporte em TI do Google</p>
-                        <span>Google/Coursera</span>
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-microchip"></i>
-                        <p>Arquitetura de computadores</p>
-                        <span>Alura</span>
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-network-wired"></i>
-                        <p>Estrutura e Funcionamento das Redes de Computadores</p>
-                        <span>Google/Coursera</span>
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-rocket"></i>
-                        <p>Tech Academy</p>
-                        <span>Startse</span>
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-tools"></i>
-                        <p>Suporte Técnico em Informática</p>
-                        <span>Escola SENAI de Informática</span>
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-desktop"></i>
-                        <p>Sistemas Operacionais</p>
-                        <span>Google/Coursera</span>
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-server"></i>
-                        <p>Administração de Sistemas e Serviços de Infraestrutura de TI</p>
-                        <span>Google/Coursera</span>
-                    </div>
-                    <div class="certification-item" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-lock"></i>
-                        <p>Segurança de TI</p>
-                        <span>Google/Coursera</span>
-                    </div>
-                </div>
-
-                <div class="linkedin-certs premium" data-aos="fade-up" data-aos-delay="150">
-                    <div class="linkedin-certs-header">
-                        <h3 class="linkedin-certs-title">Mais certificações no LinkedIn</h3>
-                        <p class="linkedin-certs-desc">Acesse a lista completa e sempre atualizada no meu perfil.</p>
-                    </div>
-
-                    <div class="linkedin-certs-card premium">
-                        <div class="linkedin-certs-card-left">
-                            <div class="linkedin-badge" aria-hidden="true">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
-
-                            <div class="linkedin-text">
-                                <p class="linkedin-certs-card-title">Ver todas as certificações no meu LinkedIn</p>
-                                <p class="linkedin-certs-card-subtitle">Atualizado automaticamente conforme novas conquistas.</p>
-                            </div>
-                        </div>
-
-                        <a class="btn btn-linkedin"
-                           href="https://www.linkedin.com/in/luissilvak/details/certifications/"
-                           target="_blank"
-                           rel="noopener">
-                            Abrir no LinkedIn <i class="fas fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-                </div>
-
             </div>
-        </section>
 
-        <section id="contact" class="section contact">
-            <div class="container">
+            <div class="timeline">
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">mar 2026 — mar 2028 · Em andamento</span>
+                    <h3>Pós-graduação Lato Sensu — Especialização, Indústria 4.0</h3>
+                    <h4>Universidade Federal de Catalão (UFCAT)</h4>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">dez 2022 — set 2024</span>
+                    <h3>Pós-graduação, Análise de Dados</h3>
+                    <h4>Descomplica Faculdade Digital</h4>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">2020 — 2022</span>
+                    <h3>Ensino Técnico, Informática</h3>
+                    <h4>Escola SENAI de Informática - IFMA</h4>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">2020 — 2021</span>
+                    <h3>Formação, Desenvolvimento de Games</h3>
+                    <h4>Instituto Federal do Maranhão</h4>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">2013 — 2019</span>
+                    <h3>Bacharelado, Engenharia Mecânica</h3>
+                    <h4>Universidade Estadual do Maranhão - UEMA</h4>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">2012</span>
+                    <h3>Formação, Suporte Técnico e Manutenção de Computadores</h3>
+                    <h4>Escola SENAI de Informática</h4>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">jan 2010 — dez 2012</span>
+                    <h3>Ensino Técnico, Técnico em Eletromecânica</h3>
+                    <h4>Centro de Ensino Técnico Dr. João Bacelar Portela</h4>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">2010 — 2011</span>
+                    <h3>Formação, Suporte Técnico / Montagem e Manutenção de Computadores</h3>
+                    <h4>CMK Informática</h4>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">2009 — 2010</span>
+                    <h3>Formação, Informática Intermediária / Avançada</h3>
+                    <h4>CMK Informática</h4>
+                </div>
+                <div class="timeline-item" data-reveal>
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-date">2008 — 2009</span>
+                    <h3>Formação, Informática Básica</h3>
+                    <h4>CMK Informática</h4>
+                </div>
+            </div>
+
+            <div class="section-head certifications-title" data-reveal>
+                <span class="section-eyebrow">Conquistas</span>
+                <h2 class="section-title">Certificações</h2>
+            </div>
+
+            <div class="certifications-grid">
+                <div class="certification-item" data-reveal>
+                    <i class="fas fa-chart-pie" aria-hidden="true"></i>
+                    <p>Aplicação do Power BI para Aprimoramento da Gestão</p>
+                    <span>Escola Nacional de Administração Pública - ENAP</span>
+                </div>
+                <div class="certification-item" data-reveal style="--reveal-delay: 0.05s">
+                    <i class="fas fa-chart-bar" aria-hidden="true"></i>
+                    <p>Power BI</p>
+                    <span>Fundação Sousandrade de Apoio ao Desenvolvimento da UFMA</span>
+                </div>
+                <div class="certification-item" data-reveal style="--reveal-delay: 0.1s">
+                    <i class="fas fa-database" aria-hidden="true"></i>
+                    <p>Gerenciar Dados com o Microsoft 365</p>
+                    <span>ENAP</span>
+                </div>
+                <div class="certification-item" data-reveal>
+                    <i class="fas fa-gamepad" aria-hidden="true"></i>
+                    <p>Desenvolvedor de Jogos Eletrônicos</p>
+                    <span>Instituto Federal do Maranhão - IFMA</span>
+                </div>
+                <div class="certification-item" data-reveal style="--reveal-delay: 0.05s">
+                    <i class="fas fa-headset" aria-hidden="true"></i>
+                    <p>Suporte em TI do Google</p>
+                    <span>Google/Coursera</span>
+                </div>
+                <div class="certification-item" data-reveal style="--reveal-delay: 0.1s">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <p>Arquitetura de Computadores</p>
+                    <span>Alura</span>
+                </div>
+                <div class="certification-item" data-reveal>
+                    <i class="fas fa-network-wired" aria-hidden="true"></i>
+                    <p>Estrutura e Funcionamento das Redes de Computadores</p>
+                    <span>Google/Coursera</span>
+                </div>
+                <div class="certification-item" data-reveal style="--reveal-delay: 0.05s">
+                    <i class="fas fa-rocket" aria-hidden="true"></i>
+                    <p>Tech Academy</p>
+                    <span>Startse</span>
+                </div>
+                <div class="certification-item" data-reveal style="--reveal-delay: 0.1s">
+                    <i class="fas fa-tools" aria-hidden="true"></i>
+                    <p>Suporte Técnico em Informática</p>
+                    <span>Escola SENAI de Informática</span>
+                </div>
+                <div class="certification-item" data-reveal>
+                    <i class="fas fa-desktop" aria-hidden="true"></i>
+                    <p>Sistemas Operacionais</p>
+                    <span>Google/Coursera</span>
+                </div>
+                <div class="certification-item" data-reveal style="--reveal-delay: 0.05s">
+                    <i class="fas fa-server" aria-hidden="true"></i>
+                    <p>Administração de Sistemas e Serviços de Infraestrutura de TI</p>
+                    <span>Google/Coursera</span>
+                </div>
+                <div class="certification-item" data-reveal style="--reveal-delay: 0.1s">
+                    <i class="fas fa-lock" aria-hidden="true"></i>
+                    <p>Segurança de TI</p>
+                    <span>Google/Coursera</span>
+                </div>
+                <div class="certification-item" data-reveal>
+                    <i class="fas fa-diagram-project" aria-hidden="true"></i>
+                    <p>Fundamentos de Engenharia de Dados</p>
+                    <span>Certificação</span>
+                </div>
+                <div class="certification-item" data-reveal style="--reveal-delay: 0.05s">
+                    <i class="fas fa-chart-line" aria-hidden="true"></i>
+                    <p>Power BI: gráficos, banco de dados e configurações de relatórios</p>
+                    <span>Certificação</span>
+                </div>
+                <div class="certification-item" data-reveal style="--reveal-delay: 0.1s">
+                    <i class="fas fa-leaf" aria-hidden="true"></i>
+                    <p>Congresso Ambiental dos Tribunais de Contas</p>
+                    <span>Tribunais de Contas</span>
+                </div>
+            </div>
+
+            <div class="linkedin-certs" data-reveal>
+                <div class="linkedin-certs-left">
+                    <span class="linkedin-badge"><i class="fab fa-linkedin" aria-hidden="true"></i></span>
+                    <div>
+                        <h3>Mais certificações no LinkedIn</h3>
+                        <p>Acesse a lista completa e sempre atualizada no meu perfil.</p>
+                    </div>
+                </div>
+                <a class="btn btn-secondary"
+                   href="https://www.linkedin.com/in/luissilvak/details/certifications/"
+                   target="_blank"
+                   rel="noopener">
+                    Abrir no LinkedIn <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section id="contact" class="section contact section-alt">
+        <div class="container">
+            <div class="section-head" data-reveal>
+                <span class="section-eyebrow">Vamos conversar</span>
                 <h2 class="section-title">Entre em Contato</h2>
-                <div class="contact-info-grid">
-                    <div class="contact-info-item" data-aos="fade-up" data-aos-delay="100">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p><a href="mailto:luisilvaoliveira4@gmail.com">luisilvaoliveira4@gmail.com</a></p>
-                    </div>
-                    <div class="contact-info-item" data-aos="fade-up" data-aos-delay="200">
-                        <i class="fab fa-linkedin"></i>
-                        <h3>LinkedIn</h3>
-                        <p><a href="https://www.linkedin.com/in/luissilvak" target="_blank">linkedin.com/in/luissilvak</a></p>
-                    </div>
-                    <div class="contact-info-item" data-aos="fade-up" data-aos-delay="300">
-                        <i class="fab fa-github"></i>
-                        <h3>GitHub</h3>
-                        <p><a href="https://github.com/LuiSilvak" target="_blank">github.com/LuiSilvak</a></p>
-                    </div>
-                    <div class="contact-info-item" data-aos="fade-up" data-aos-delay="400">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Localização</h3>
-                        <p>São Luís, Maranhão, Brasil</p>
-                    </div>
-                </div>
-                <form class="contact-form" action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST" data-aos="fade-up">
-                    <input type="text" name="name" placeholder="Seu Nome Completo" required>
-                    <input type="email" name="_replyto" placeholder="Seu Email" required>
-                    <textarea name="message" placeholder="Sua Mensagem" required></textarea>
-                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                </form>
+                <p class="section-desc">Aberto a novas oportunidades, parcerias e projetos. Me chame por qualquer um dos canais abaixo.</p>
             </div>
-        </section>
-    </main>
 
-    <footer class="footer">
+            <div class="contact-info-grid">
+                <div class="contact-info-item" data-reveal>
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:luisilvaoliveira4@gmail.com">luisilvaoliveira4@gmail.com</a></p>
+                </div>
+                <div class="contact-info-item" data-reveal style="--reveal-delay: 0.08s">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    <h3>LinkedIn</h3>
+                    <p><a href="https://www.linkedin.com/in/luissilvak" target="_blank" rel="noopener">linkedin.com/in/luissilvak</a></p>
+                </div>
+                <div class="contact-info-item" data-reveal style="--reveal-delay: 0.16s">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    <h3>GitHub</h3>
+                    <p><a href="https://github.com/LuiSilvak" target="_blank" rel="noopener">github.com/LuiSilvak</a></p>
+                </div>
+                <div class="contact-info-item" data-reveal style="--reveal-delay: 0.24s">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                    <h3>Localização</h3>
+                    <p>São Luís, Maranhão, Brasil</p>
+                </div>
+            </div>
+
+            <form class="contact-form" action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST" data-reveal>
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Seu nome completo" required aria-label="Seu nome completo">
+                    <input type="email" name="_replyto" placeholder="Seu email" required aria-label="Seu email">
+                </div>
+                <textarea name="message" placeholder="Sua mensagem" required aria-label="Sua mensagem"></textarea>
+                <button type="submit" class="btn btn-primary">
+                    Enviar Mensagem <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
     <div class="container">
         <div class="footer-social-links">
-            <a href="https://www.linkedin.com/in/luissilvak" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/LuiSilvak" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/luissilvak" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="https://github.com/LuiSilvak" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="mailto:luisilvaoliveira4@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
         </div>
 
-        <p>
-            &copy; <span data-current-year>2025</span> Luís Silva. Todos os direitos reservados.
-        </p>
+        <p>&copy; <span data-current-year>2026</span> Luís Silva. Todos os direitos reservados.</p>
     </div>
 </footer>
 
+<button class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</button>
 
-<script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script defer src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-<script defer src="assets/js/main.js"></script>
+<script defer src="assets/js/main.js?v=3"></script>
 
 </body>
 </html>

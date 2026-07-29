@@ -3,72 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luís Silva | Portfólio de Engenharia de Dados</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="./css/style.css">
-</head>
 
+    <title>Luís Silva | Portfólio de Engenharia de Dados</title>
+    <meta name="description" content="Projetos envolvendo pipelines de dados, ETL/ELT, modelagem, orquestração e automação para garantir qualidade e disponibilidade da informação.">
+    <meta name="author" content="Luís Silva">
+    <meta name="theme-color" content="#05080f">
+
+    <link rel="icon" href="../../assets/img/favicon.png" type="image/png">
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../../assets/css/portfolio.css?v=2">
+</head>
 <body class="theme-data-engineering">
     <div class="portfolio-container">
         <aside class="sidebar">
             <a href="../../index.html" class="back-button" aria-label="Voltar ao início">
-  <span class="back-icon" aria-hidden="true">
-    <i class="fas fa-arrow-left"></i>
-  </span>
-  <span class="back-text">Voltar ao Início</span>
-</a>
-
+                <span class="back-icon" aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
+                <span class="back-text">Voltar ao Início</span>
+            </a>
 
             <div class="profile">
-                <img src="../../assets/img/luis-silva-perfil.png" alt="Foto de Luís Silva" class="profile-photo">
+                <img src="../../assets/img/luis-silva-perfil.png" alt="Foto de Luís Silva" class="profile-photo" width="128" height="128">
                 <h1>Luís Silva</h1>
                 <p>Engenharia de Dados</p>
             </div>
 
-            <nav class="sidebar-nav">
-                <a href="https://www.linkedin.com/in/luissilvak" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i> LinkedIn
+            <nav class="sidebar-nav" aria-label="Links do perfil">
+                <a href="https://www.linkedin.com/in/luissilvak" target="_blank" rel="noopener">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
                 </a>
-
-                <a href="https://github.com/LuiSilvak" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i> GitHub
+                <a href="https://github.com/LuiSilvak" target="_blank" rel="noopener">
+                    <i class="fab fa-github" aria-hidden="true"></i> GitHub
                 </a>
-
-                <a href="../../assets/docs/Luis_Silva_CV_Engenharia_Dados_PT.pdf" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-file-pdf"></i> Currículo (PT)
-                </a>
-
-                <a href="../../assets/docs/Luis_Silva_CV_Data_Engineer_EN.pdf" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-language"></i> Resume (EN)
+                <a href="../../docs/Luis_Silva_Curriculo.pdf" target="_blank" rel="noopener">
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i> Currículo
                 </a>
             </nav>
         </aside>
 
         <main class="main-content">
             <header class="main-header">
+                <span class="page-eyebrow">Portfólio</span>
                 <h2>Portfólio de Engenharia de Dados</h2>
                 <p>Projetos envolvendo pipelines de dados, ETL/ELT, modelagem, orquestração e automação para garantir qualidade e disponibilidade da informação.</p>
             </header>
 
             <div class="controls">
-                <div class="filters">
+                <div class="filters" role="group" aria-label="Filtrar projetos">
                     <button class="filter-btn active" data-filter="todos">Todos</button>
                     <button class="filter-btn" data-filter="ETL">ETL</button>
                     <button class="filter-btn" data-filter="Python">Python</button>
                     <button class="filter-btn" data-filter="SQL">SQL</button>
                 </div>
-                <input type="text" id="searchInput" placeholder="Pesquisar projeto...">
+                <div class="search-wrap">
+                    <i class="fas fa-magnifying-glass search-icon" aria-hidden="true"></i>
+                    <input type="text" id="searchInput" placeholder="Pesquisar projeto..." aria-label="Pesquisar projeto">
+                </div>
             </div>
 
-            <section id="projects-grid" class="projects-grid"></section>
+            <section id="projects-grid" class="projects-grid" aria-live="polite"></section>
         </main>
     </div>
 
-    <div id="projectModal" class="modal">
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
+            <button class="close-button" aria-label="Fechar">&times;</button>
             <h3 id="modalTitle"></h3>
             <p id="modalDescription"></p>
             <div class="modal-body"></div>
@@ -76,6 +82,6 @@
         </div>
     </div>
 
-    <script type="module" src="./js/script.js"></script>
+    <script type="module" src="./js/script.js?v=2"></script>
 </body>
 </html>

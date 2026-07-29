@@ -1,130 +1,252 @@
+/* ==========================================================================
+   LUÍS SILVA — PORTFÓLIO
+   JavaScript principal (sem dependências externas)
+   ========================================================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // ============================
-    // 1. INICIALIZAÇÃO DE BIBLIOTECAS
+    // 1. REVEAL AO ROLAR (substitui o AOS)
     // ============================
-    if (window.AOS) {
-        AOS.init({
-            duration: 800,
-            once: true
-        });
+    const revealElements = document.querySelectorAll('[data-reveal]');
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        revealElements.forEach(el => el.classList.add('is-visible'));
+    } else {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
     }
 
-    // Se existir o span de texto digitado, inicializa o Typed
-    if (window.Typed && document.querySelector('#typed-specializations')) {
-        const typedOptions = {
-            strings: [
-                'Analista de Dados&nbsp;|&nbsp;Desenvolvedor Full Stack&nbsp;|&nbsp;Técnico em Informática&nbsp;|&nbsp;Engenheiro Mecânico'
-            ],
-            typeSpeed: 40,
-            startDelay: 500,
-            loop: false,
-            showCursor: true,
-            cursorChar: '|',
-            contentType: 'html'
+    // ============================
+    // 2. EFEITO DE DIGITAÇÃO (substitui o typed.js)
+    // ============================
+    const typedTarget = document.getElementById('typed-roles');
+
+    if (typedTarget) {
+        const roles = [
+            'Analista de Dados',
+            'Desenvolvedor Full Stack',
+            'Engenheiro de Dados',
+            'Especialista em Automação',
+            'Engenheiro Mecânico'
+        ];
+
+        if (prefersReducedMotion) {
+            typedTarget.textContent = roles[0];
+        } else {
+            let roleIndex = 0;
+            let charIndex = 0;
+            let deleting = false;
+
+            const TYPE_DELAY = 65;
+            const DELETE_DELAY = 32;
+            const HOLD_DELAY = 2100;
+
+            const tick = () => {
+                const current = roles[roleIndex];
+
+                if (!deleting) {
+                    charIndex++;
+                    typedTarget.textContent = current.slice(0, charIndex);
+
+                    if (charIndex === current.length) {
+                        deleting = true;
+                        setTimeout(tick, HOLD_DELAY);
+                        return;
+                    }
+                    setTimeout(tick, TYPE_DELAY);
+                } else {
+                    charIndex--;
+                    typedTarget.textContent = current.slice(0, charIndex);
+
+                    if (charIndex === 0) {
+                        deleting = false;
+                        roleIndex = (roleIndex + 1) % roles.length;
+                    }
+                    setTimeout(tick, DELETE_DELAY);
+                }
+            };
+
+            setTimeout(tick, 500);
+        }
+    }
+
+    // ============================
+    // 3. CONTADORES ANIMADOS (STATS DO HERO)
+    // ============================
+    const counters = document.querySelectorAll('[data-counter]');
+
+    const animateCounter = (el) => {
+        const target = parseInt(el.dataset.counter, 10);
+        if (Number.isNaN(target)) return;
+
+        if (prefersReducedMotion) {
+            el.textContent = target;
+            return;
+        }
+
+        const duration = 1400;
+        const start = performance.now();
+
+        const step = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+            el.textContent = Math.round(eased * target);
+            if (progress < 1) requestAnimationFrame(step);
         };
 
-        new Typed('#typed-specializations', typedOptions);
+        requestAnimationFrame(step);
+    };
+
+    if ('IntersectionObserver' in window) {
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.6 });
+
+        counters.forEach(el => counterObserver.observe(el));
+    } else {
+        counters.forEach(el => { el.textContent = el.dataset.counter; });
     }
 
     // ============================
-    // 2. ELEMENTOS PRINCIPAIS
+    // 4. ELEMENTOS PRINCIPAIS
     // ============================
-    const header       = document.querySelector('.header');
-    const navLinks     = Array.from(document.querySelectorAll('.nav-links a'));
-    const sections     = Array.from(document.querySelectorAll('main section[id]'));
-    const menuToggle   = document.querySelector('.menu-toggle');
+    const header = document.querySelector('.header');
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+    const sections = Array.from(document.querySelectorAll('main section[id]'));
+    const menuToggle = document.querySelector('.menu-toggle');
     const navLinksList = document.querySelector('.nav-links');
-    const logoLink     = document.querySelector('.logo');
+    const logoLink = document.querySelector('.logo');
+    const progressBar = document.querySelector('.scroll-progress');
+    const backToTop = document.querySelector('.back-to-top');
 
     // ============================
-    // 3. FUNÇÃO PARA ATUALIZAR LINK ATIVO COM BASE NO SCROLL
-    //    (USANDO O 1/3 SUPERIOR DA TELA COMO REFERÊNCIA)
+    // 5. LINK ATIVO DE ACORDO COM O SCROLL
     // ============================
+    const setActiveLink = (id) => {
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+    };
+
     const updateActiveLinkOnScroll = () => {
-        if (!sections.length || !navLinks.length) return;
+        if (!sections.length) return;
 
-        const scrollPosition = window.pageYOffset + window.innerHeight / 3;
-        let currentSectionId = 'home';
+        const scrollPosition = window.scrollY + window.innerHeight / 3;
+        let currentSectionId = sections[0].id;
 
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            if (scrollPosition >= section.offsetTop) {
                 currentSectionId = section.id;
             }
         });
 
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            link.classList.toggle('active', href === `#${currentSectionId}`);
-        });
+        setActiveLink(currentSectionId);
     };
 
     // ============================
-    // 4. CLIQUE NO MENU
+    // 6. MENU (CLIQUE + MOBILE)
     // ============================
+    const closeMobileMenu = () => {
+        if (navLinksList && navLinksList.classList.contains('show')) {
+            navLinksList.classList.remove('show');
+        }
+        if (menuToggle) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+    };
+
     navLinks.forEach(link => {
         link.addEventListener('click', function () {
-            // Marca o link clicado como ativo imediatamente
             navLinks.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
-
-            // Fecha o menu mobile após o clique
-            if (navLinksList && navLinksList.classList.contains('show')) {
-                navLinksList.classList.remove('show');
-            }
-            if (menuToggle) {
-                menuToggle.setAttribute('aria-expanded', 'false');
-            }
+            closeMobileMenu();
         });
     });
 
-    // Clique no logo volta o destaque para "Início"
     if (logoLink) {
         logoLink.addEventListener('click', () => {
-            navLinks.forEach(l => l.classList.remove('active'));
-            const homeLink = navLinks.find(l => l.getAttribute('href') === '#home');
-            if (homeLink) homeLink.classList.add('active');
+            setActiveLink('home');
+            closeMobileMenu();
         });
     }
 
-    // ============================
-    // 5. MENU HAMBÚRGUER
-    // ============================
     if (menuToggle && navLinksList) {
         menuToggle.addEventListener('click', () => {
             const isOpen = navLinksList.classList.toggle('show');
             menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
+
+        // Fecha ao clicar fora ou pressionar Esc
+        document.addEventListener('click', (e) => {
+            if (!navLinksList.contains(e.target) && !menuToggle.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMobileMenu();
+        });
     }
 
     // ============================
-    // 6. HEADER COM SCROLL (EFEITO VISUAL)
+    // 7. SCROLL: HEADER, PROGRESSO E BACK-TO-TOP
     // ============================
-    const updateHeaderOnScroll = () => {
-        if (!header) return;
-        if (window.scrollY > 10) {
-            header.classList.add('header--scrolled');
-        } else {
-            header.classList.remove('header--scrolled');
+    let ticking = false;
+
+    const onScroll = () => {
+        const scrollY = window.scrollY;
+
+        // Header com fundo ao rolar
+        if (header) {
+            header.classList.toggle('header--scrolled', scrollY > 10);
         }
-    };
 
-    // ============================
-    // 7. LISTENER DE SCROLL ÚNICO
-    // ============================
-    const handleScroll = () => {
-        updateHeaderOnScroll();
+        // Barra de progresso
+        if (progressBar) {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? scrollY / docHeight : 0;
+            progressBar.style.transform = `scaleX(${progress})`;
+        }
+
+        // Botão voltar ao topo
+        if (backToTop) {
+            backToTop.classList.toggle('is-visible', scrollY > window.innerHeight * 0.8);
+        }
+
         updateActiveLinkOnScroll();
+        ticking = false;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(onScroll);
+            ticking = true;
+        }
+    }, { passive: true });
 
-    // Chamada inicial para ajustar estado logo ao carregar
-    updateHeaderOnScroll();
-    updateActiveLinkOnScroll();
+    onScroll();
+
+    if (backToTop) {
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        });
+    }
 
     // ============================
     // 8. ANO DINÂMICO NO RODAPÉ

@@ -1,96 +1,76 @@
-# Portfólio de Análise de Dados - Luís Silva
+# Portfólio — Luís Silva
 
-Bem-vindo ao meu portfólio online! Este projeto foi desenvolvido para
-apresentar minhas habilidades, projetos e experiência profissional como
-Analista de Dados.
+Portfólio profissional multidisciplinar: Análise de Dados, Desenvolvimento Full Stack,
+Automação, Infraestrutura de TI e Engenharia Mecânica.
 
-## Sobre Mim
+🔗 **Site:** https://luisilvak.github.io/portfolio_luis-silva/
 
-Sou um profissional multidisciplinar com foco em Análise de Dados,
-impulsionado por transformar informações em insights acionáveis. Domino
-Python para análise e automação de dados, sou proficiente em Power BI
-(Power Query, DAX) para a criação de dashboards interativos e possuo
-expertise em SQL para manipulação de bancos de dados. Minha experiência
-se estende ao Desenvolvimento de Software e DevOps, e também atuo em
-Tecnologias Educacionais.
+## Destaques
 
-## Habilidades Chave
+- Design premium dark com glassmorphism, gradientes e animações suaves
+- **Zero frameworks e zero build** — HTML, CSS e JavaScript puros
+- Animações de reveal com `IntersectionObserver` (sem bibliotecas externas)
+- Efeito de digitação no hero implementado em JS puro
+- 9 galerias de portfólio por área, com filtros, busca e modal de detalhes
+- Acessível: skip link, `aria-*`, navegação por teclado e `prefers-reduced-motion`
+- SEO: Open Graph, Twitter Card, JSON-LD (Schema.org), sitemap e robots.txt
 
--   **Análise de Dados & BI:** Power BI (Power Query, DAX), Inteligência
-    de Negócios (BI), Excel, VBA Excel.
--   **Linguagens & Ferramentas:** Python (Pandas, NumPy), SQL, DAX,
-    PHP/Laravel, Shell script, PowerShell, Bash.
--   **Desenvolvimento & Infraestrutura:** CI/CD, Testes automatizados,
-    Gestão de servidores em nuvem, Git, WordPress, Moodle, Google
-    Workspace.
--   **Engenharia & Outros:** MATLAB, Proteus, AutoCAD, Inventor,
-    SolidWorks.
+## Estrutura
 
-## Projetos Destacados
-
-Nesta seção, você encontrará alguns dos meus projetos mais relevantes,
-que demonstram minha capacidade de transformar dados brutos em insights
-valiosos e soluções práticas. Cada projeto inclui uma descrição, as
-tecnologias utilizadas e, quando possível, links para o código-fonte no
-GitHub e/ou para dashboards interativos.
-
--   **Dashboard de Insights Processuais (TCE-MA):** Criação de
-    dashboards em Power BI.
--   **Automação de Relatórios com Python:** Scripts Python para
-    otimização de rotinas e geração de relatórios.
--   **Otimização de Bancos de Dados com SQL e VBA:** Aplicação de SQL e
-    VBA Excel para gestão eficiente de dados.
-
-## Como Visualizar
-
-Para visualizar este portfólio localmente, basta clonar o repositório e
-abrir o arquivo `index.html` em seu navegador.
-
-``` bash
-git clone https://github.com/LuiSilvak/luissilvak.github.io.git
-cd luissilvak.github.io
+```
+├── index.html                  # Página principal
+├── assets/
+│   ├── css/
+│   │   ├── style.css           # Design system da página principal
+│   │   └── portfolio.css       # Estilo compartilhado das 9 subpáginas
+│   ├── js/
+│   │   ├── main.js             # Interações da página principal
+│   │   └── portfolio.js        # Módulo compartilhado (cards, filtros, busca, modal)
+│   └── img/
+├── docs/
+│   └── Luis_Silva_Curriculo.pdf
+└── portfolios/
+    └── <área>/
+        ├── index.html          # Template unificado (tema via classe no <body>)
+        ├── js/projetos.js      # Dados dos projetos da área (edite aqui!)
+        └── js/script.js        # Bootstrap: importa o módulo compartilhado
 ```
 
-O portfólio estará hospedado publicamente em:
-https://luissilvak.github.io (após a configuração do GitHub Pages).
+## Como adicionar projetos
 
-------------------------------------------------------------------------
+Edite o arquivo `portfolios/<área>/js/projetos.js` e adicione um objeto ao array:
 
-## Próximos Aprimoramentos
+```js
+{
+  titulo: "Nome do Projeto",
+  descricao: "Descrição curta do projeto.",
+  imagem: "./images/capa.png",        // opcional — sem imagem, mostra placeholder
+  tipo: "imagem",                     // "imagem" ou "iframe" (ex.: Power BI)
+  conteudo: "./images/detalhe.png",   // conteúdo exibido no modal
+  linkLive: "",                       // link da demo (opcional)
+  linkRepo: "https://github.com/...", // link do repositório (opcional)
+  tecnologias: ["Python", "SQL"]
+}
+```
 
--   Menu hambúrguer para mobile
--   Galeria de projetos filtrável
--   Animações de rolagem com AOS
--   Versão em inglês do portfólio
--   Transformar o projeto em PWA
+## Como visualizar localmente
 
-------------------------------------------------------------------------
+As subpáginas usam módulos ES (`import`), então é necessário um servidor local:
 
-## Estrutura das Pastas
+```bash
+git clone https://github.com/LuiSilvak/portfolio_luis-silva.git
+cd portfolio_luis-silva
+python -m http.server 8000
+# Abra http://localhost:8000
+```
 
-Cada pasta dentro de `portfolios/` pode conter:
+## Formulário de contato
 
--   Descrição do projeto
--   Prints/screenhots
--   Links para repositórios específicos
--   Links para demos ou dashboards publicados
-
-------------------------------------------------------------------------
-
-## Publicação no GitHub Pages
-
-1.  Certifique-se de que o repositório se chama `luissilvak.github.io`.
-2.  Acesse `Settings → Pages` no GitHub.
-3.  Em **Build and deployment**, selecione:
-    -   Source: Deploy from a branch
-    -   Branch: main (ou master) e pasta `/root`
-
-O site ficará disponível em: 📍 https://luissilvak.github.io
-
-------------------------------------------------------------------------
+O formulário usa o [Formspree](https://formspree.io). Para ativá-lo, crie um formulário
+gratuito e substitua `SEU_CODIGO_AQUI` no `action` do `<form>` em `index.html`.
 
 ## Contato
 
-Email: luisilvaoliveira4@gmail.com\
-LinkedIn: https://linkedin.com/in/luissilvak\
-GitHub: https://github.com/LuiSilvak
+- **Email:** luisilvaoliveira4@gmail.com
+- **LinkedIn:** https://linkedin.com/in/luissilvak
+- **GitHub:** https://github.com/LuiSilvak
